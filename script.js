@@ -353,10 +353,10 @@ function setupScrollAnimations() {
 		observerOptions
 	);
 
-	// Observe all cards and sections
+	// Observe all cards, sections, and main content areas
 	const elementsToObserve =
 		document.querySelectorAll(
-			".step-card, .benefit-item, .testimonial-card, .tip-card, .scenario"
+			".step-card, .benefit-card, .benefit-item, .testimonial-card, .tip-card, .scenario-card, .option, .how-it-works-step, .education-tip, section"
 		);
 
 	elementsToObserve.forEach((el) => {
@@ -367,17 +367,31 @@ function setupScrollAnimations() {
 	const animationStyle =
 		document.createElement("style");
 	animationStyle.textContent = `
-        .step-card, .benefit-item, .testimonial-card, .tip-card, .scenario {
+        .step-card, 
+        .benefit-card,
+        .benefit-item, 
+        .testimonial-card, 
+        .tip-card, 
+        .scenario-card,
+        .option,
+        .how-it-works-step,
+        .education-tip,
+        section {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
         .step-card.animate-in,
+        .benefit-card.animate-in,
         .benefit-item.animate-in,
         .testimonial-card.animate-in,
         .tip-card.animate-in,
-        .scenario.animate-in {
+        .scenario-card.animate-in,
+        .option.animate-in,
+        .how-it-works-step.animate-in,
+        .education-tip.animate-in,
+        section.animate-in {
             opacity: 1;
             transform: translateY(0);
         }
