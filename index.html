@@ -24,10 +24,20 @@
 		<nav class="navbar">
 			<div class="container">
 				<div class="nav-wrapper">
-					<div class="logo">
-						<i class="fas fa-heart-pulse"></i>
-						<span>SmartCare</span>
+					<!-- Logo -->
+					<div class="nav-brand">
+						<div class="logo">
+							<i class="fas fa-heart-pulse"></i>
+							<span class="logo-text"
+								>SmartCare</span
+							>
+						</div>
+						<p class="logo-subtitle">
+							Home Monitoring
+						</p>
 					</div>
+
+					<!-- Menu -->
 					<div class="nav-menu">
 						<a
 							href="#how-it-works"
@@ -49,13 +59,58 @@
 							class="nav-link"
 							>Get Started</a
 						>
+						<div class="nav-divider"></div>
+						<button
+							class="nav-cta btn btn-primary"
+							onclick="scrollToSection('get-started')"
+						>
+							Schedule Demo
+						</button>
 					</div>
-					<button class="mobile-menu-btn">
+
+					<!-- Mobile Menu Button -->
+					<button
+						class="mobile-menu-btn"
+						id="mobileMenuBtn"
+					>
 						<span></span>
 						<span></span>
 						<span></span>
 					</button>
 				</div>
+			</div>
+
+			<!-- Mobile Menu Overlay -->
+			<div
+				class="nav-mobile-menu"
+				id="navMobileMenu"
+			>
+				<a
+					href="#how-it-works"
+					class="nav-link-mobile"
+					>How It Works</a
+				>
+				<a
+					href="#benefits"
+					class="nav-link-mobile"
+					>Benefits</a
+				>
+				<a
+					href="#testimonials"
+					class="nav-link-mobile"
+					>Testimonials</a
+				>
+				<a
+					href="#get-started"
+					class="nav-link-mobile"
+					>Get Started</a
+				>
+				<button
+					class="nav-cta-mobile btn btn-primary"
+					onclick="scrollToSection('get-started')"
+				>
+					Schedule Demo
+				</button>
 			</div>
 		</nav>
 

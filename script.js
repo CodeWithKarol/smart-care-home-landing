@@ -1,4 +1,126 @@
 // ============================================
+// Navigation & Scroll Functions
+// ============================================
+
+/**
+ * Scroll to a specific section
+ */
+function scrollToSection(sectionId) {
+	const section =
+		document.getElementById(sectionId);
+	if (section) {
+		// Close mobile menu if open
+		closeMobileMenu();
+
+		// Scroll to section with smooth behavior
+		section.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		});
+
+		// Track analytics if available
+		if (window.gtag) {
+			gtag("event", "navigation_click", {
+				section: sectionId,
+			});
+		}
+	}
+}
+
+/**
+ * Mobile Menu Management
+ */
+function toggleMobileMenu() {
+	const mobileMenuBtn = document.getElementById(
+		"mobileMenuBtn"
+	);
+	const navMobileMenu = document.getElementById(
+		"navMobileMenu"
+	);
+
+	if (mobileMenuBtn && navMobileMenu) {
+		mobileMenuBtn.classList.toggle("active");
+		navMobileMenu.classList.toggle("active");
+	}
+}
+
+function closeMobileMenu() {
+	const mobileMenuBtn = document.getElementById(
+		"mobileMenuBtn"
+	);
+	const navMobileMenu = document.getElementById(
+		"navMobileMenu"
+	);
+
+	if (mobileMenuBtn && navMobileMenu) {
+		mobileMenuBtn.classList.remove("active");
+		navMobileMenu.classList.remove("active");
+	}
+}
+
+/**
+ * Initialize mobile menu listeners
+ */
+function initMobileMenu() {
+	const mobileMenuBtn = document.getElementById(
+		"mobileMenuBtn"
+	);
+	const navMobileMenu = document.getElementById(
+		"navMobileMenu"
+	);
+
+	if (mobileMenuBtn) {
+		mobileMenuBtn.addEventListener(
+			"click",
+			toggleMobileMenu
+		);
+	}
+
+	// Close menu when clicking on nav links
+	if (navMobileMenu) {
+		const links =
+			navMobileMenu.querySelectorAll("a");
+		links.forEach((link) => {
+			link.addEventListener(
+				"click",
+				closeMobileMenu
+			);
+		});
+	}
+
+	// Close menu when clicking outside
+	document.addEventListener(
+		"click",
+		function (event) {
+			const navbar =
+				document.querySelector(".navbar");
+			if (
+				navbar &&
+				!navbar.contains(event.target)
+			) {
+				closeMobileMenu();
+			}
+		}
+	);
+
+	// Close menu on window resize if switching to desktop
+	let resizeTimeout;
+	window.addEventListener("resize", function () {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(function () {
+			if (window.innerWidth > 768) {
+				closeMobileMenu();
+			}
+		}, 100);
+	});
+
+	// Also check on initial load to ensure menu is closed on desktop
+	if (window.innerWidth > 768) {
+		closeMobileMenu();
+	}
+}
+
+// ============================================
 // Modal Management
 // ============================================
 
@@ -212,93 +334,46 @@ function setupMobileMenu() {
 	const mobileMenuBtn = document.querySelector(
 		".mobile-menu-btn"
 	);
-	const navMenu =
-		document.querySelector(".nav-menu");
+	const navMobileMenu = document.querySelector(
+		".nav-mobile-menu"
+	);
 
-	if (!mobileMenuBtn) return;
+	if (!mobileMenuBtn || !navMobileMenu) return;
 
+	// Toggle menu on button click
 	mobileMenuBtn.addEventListener(
 		"click",
-		function () {
-			navMenu.classList.toggle("active");
-
-			// Animate hamburger menu
-			const spans = this.querySelectorAll("span");
-			if (navMenu.classList.contains("active")) {
-				spans[0].style.transform =
-					"rotate(45deg) translate(8px, 8px)";
-				spans[1].style.opacity = "0";
-				spans[2].style.transform =
-					"rotate(-45deg) translate(7px, -7px)";
-			} else {
-				spans[0].style.transform = "none";
-				spans[1].style.opacity = "1";
-				spans[2].style.transform = "none";
-			}
+		function (e) {
+			e.stopPropagation();
+			toggleMobileMenu();
 		}
 	);
 
-	// Close menu when clicking on a link
-	const navLinks =
-		document.querySelectorAll(".nav-link");
+	// Close menu when clicking on nav links
+	const navLinks = navMobileMenu.querySelectorAll(
+		".nav-link-mobile, .nav-cta-mobile"
+	);
 	navLinks.forEach((link) => {
 		link.addEventListener("click", function () {
-			navMenu.classList.remove("active");
-			const spans =
-				mobileMenuBtn.querySelectorAll("span");
-			spans[0].style.transform = "none";
-			spans[1].style.opacity = "1";
-			spans[2].style.transform = "none";
+			closeMobileMenu();
 		});
 	});
-}
 
-// Add styles for mobile menu
-const menuStyle = document.createElement("style");
-menuStyle.textContent = `
-    @media (max-width: 768px) {
-        .nav-menu {
-            display: none !important;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: var(--white);
-            flex-direction: column;
-            gap: 0;
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow);
-            padding: 0;
-            animation: slideDown 0.3s ease;
-        }
-        
-        .nav-menu.active {
-            display: flex !important;
-        }
-        
-        .nav-link {
-            padding: 1rem 1.5rem;
-            display: block;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .nav-link:last-child {
-            border-bottom: none;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    }
-`;
-document.head.appendChild(menuStyle);
+	// Close menu when clicking outside navbar
+	document.addEventListener(
+		"click",
+		function (event) {
+			const navbar =
+				document.querySelector(".navbar");
+			if (
+				navbar &&
+				!navbar.contains(event.target)
+			) {
+				closeMobileMenu();
+			}
+		}
+	);
+}
 
 // ============================================
 // Smooth Scroll
