@@ -379,6 +379,58 @@ For questions or customization needs regarding this landing page, please contact
 
 ## 📝 Changelog
 
+### November 2025 - Responsive Design & UX Refinements Phase
+
+**v1.4.0 - Footer Redesign, Navbar & Modal Improvements**
+
+#### Footer Enhancements:
+
+- ✅ Comprehensive footer redesign with centered grid layout (max-width: 700px desktop, 550px tablet, 420px mobile)
+- ✅ Brand section centered with flexbox layout
+- ✅ Feature badges centered with `width: fit-content`
+- ✅ Social links center-aligned with `justify-content: center`
+- ✅ Section lists center-aligned on mobile, left-aligned on tablet/desktop
+- ✅ Improved footer section h4 underlines (left-aligned at all breakpoints)
+- ✅ Better footer bottom alignment and badge centering
+- ✅ Responsive padding and spacing across 480px, 768px, 1024px breakpoints
+
+#### Navbar Improvements:
+
+- ✅ Navbar responsiveness enhanced at tablet resolutions (768px, 1024px)
+- ✅ Improved nav-wrapper padding and gap for better spacing
+- ✅ Logo sizing optimization (1.15rem at 1024px and 768px)
+- ✅ Mobile navbar size reduction (0.35rem padding, smaller logo 1rem)
+- ✅ Reduced mobile hamburger size and menu padding
+
+#### Mobile Menu Positioning:
+
+- ✅ Fixed mobile menu positioning (top: 52px for <480px, 65px for <480px final)
+- ✅ Mobile menu opens well below navbar without overlap
+- ✅ Eliminated gap between navbar and mobile menu
+
+#### Hero Section Adjustments:
+
+- ✅ Reduced empty space between navbar and hero on tablets (padding-top: 60px, hero-content: 20px)
+
+#### Modal Redesign:
+
+- ✅ Modern modal with gradient background (white to light blue)
+- ✅ Enhanced backdrop with blur effect (4px) and 0.6 opacity
+- ✅ Styled close button with background, rounded corners, and rotation hover effect
+- ✅ Gradient text heading with blue to cyan gradient
+- ✅ Improved form styling with better borders (2px solid) and focus states
+- ✅ Added label support for form groups
+- ✅ Better placeholder text styling and visual feedback
+
+#### Form Elements:
+
+- ✅ Custom select dropdown with SVG chevron icon
+- ✅ Select dropdown appearance: none for custom styling
+- ✅ Icon positioned 12px from right edge (20px size)
+- ✅ Icon persists on focus with explicit background-image in :focus state
+- ✅ Better form input padding and border styling
+- ✅ Improved textarea with min-height and proper resize behavior
+
 ### November 2025 - Navbar Redesign & Mobile Menu Phase
 
 **v1.3.0 - Premium Navbar & Mobile Menu System**
