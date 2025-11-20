@@ -28,6 +28,32 @@ function scrollToSection(sectionId) {
 }
 
 /**
+ * Scroll to top when logo is clicked
+ */
+function scrollToTop() {
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth",
+	});
+}
+
+/**
+ * Initialize logo click handler
+ */
+document.addEventListener(
+	"DOMContentLoaded",
+	function () {
+		const logo = document.querySelector(
+			".nav-brand .logo"
+		);
+		if (logo) {
+			logo.style.cursor = "pointer";
+			logo.addEventListener("click", scrollToTop);
+		}
+	}
+);
+
+/**
  * Mobile Menu Management
  */
 function toggleMobileMenu() {
