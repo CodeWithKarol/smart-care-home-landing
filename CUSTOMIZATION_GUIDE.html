@@ -1,765 +1,1287 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>SmartCare Home - Customization Guide</title>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>
+			SmartCare Home - Customization Guide
+		</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
-		body {
-			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-			color: #2c3e50;
-			background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
-			line-height: 1.6;
-			padding: 0;
-		}
+			body {
+				font-family: "Segoe UI", Tahoma, Geneva,
+					Verdana, sans-serif;
+				color: #2c3e50;
+				background: linear-gradient(
+					135deg,
+					#f8f9fa 0%,
+					#f0f4f8 100%
+				);
+				line-height: 1.6;
+				padding: 0;
+			}
 
-		.container {
-			max-width: 1000px;
-			margin: 0 auto;
-			padding: 20px;
-		}
+			.container {
+				max-width: 1000px;
+				margin: 0 auto;
+				padding: 20px;
+			}
 
-		header {
-			background: linear-gradient(135deg, #0066cc 0%, #00a8e8 100%);
-			color: white;
-			padding: 60px 20px;
-			text-align: center;
-			border-radius: 12px;
-			margin-bottom: 40px;
-			box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
-		}
+			header {
+				background: linear-gradient(
+					135deg,
+					#0066cc 0%,
+					#00a8e8 100%
+				);
+				color: white;
+				padding: 60px 20px;
+				text-align: center;
+				border-radius: 12px;
+				margin-bottom: 40px;
+				box-shadow: 0 10px 30px
+					rgba(0, 102, 204, 0.3);
+			}
 
-		header h1 {
-			font-size: 2.5rem;
-			margin-bottom: 10px;
-			font-weight: 700;
-		}
-
-		header p {
-			font-size: 1.1rem;
-			opacity: 0.9;
-		}
-
-		.toc {
-			background: white;
-			padding: 30px;
-			border-radius: 12px;
-			margin-bottom: 40px;
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-			border-left: 4px solid #00a8e8;
-		}
-
-		.toc h2 {
-			color: #0066cc;
-			margin-bottom: 20px;
-			font-size: 1.5rem;
-		}
-
-		.toc ul {
-			list-style: none;
-		}
-
-		.toc li {
-			margin-bottom: 12px;
-		}
-
-		.toc a {
-			color: #0066cc;
-			text-decoration: none;
-			transition: color 0.3s ease;
-		}
-
-		.toc a:hover {
-			color: #00a8e8;
-			text-decoration: underline;
-		}
-
-		section {
-			background: white;
-			padding: 40px;
-			margin-bottom: 30px;
-			border-radius: 12px;
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-		}
-
-		section h2 {
-			color: #0066cc;
-			font-size: 1.8rem;
-			margin-bottom: 25px;
-			padding-bottom: 15px;
-			border-bottom: 3px solid #00a8e8;
-		}
-
-		section h3 {
-			color: #0052a3;
-			font-size: 1.3rem;
-			margin-top: 25px;
-			margin-bottom: 15px;
-		}
-
-		section p {
-			margin-bottom: 15px;
-			color: #555;
-		}
-
-		.code-block {
-			background: #f5f9fc;
-			border-left: 4px solid #00a8e8;
-			padding: 15px;
-			margin: 20px 0;
-			border-radius: 6px;
-			overflow-x: auto;
-		}
-
-		.code-block code {
-			font-family: 'Courier New', monospace;
-			color: #0066cc;
-			font-size: 0.9rem;
-			line-height: 1.5;
-		}
-
-		.tip {
-			background: #e8f4f8;
-			border-left: 4px solid #00a8e8;
-			padding: 15px;
-			margin: 20px 0;
-			border-radius: 6px;
-		}
-
-		.tip strong {
-			color: #0066cc;
-		}
-
-		.warning {
-			background: #fff3cd;
-			border-left: 4px solid #ffc107;
-			padding: 15px;
-			margin: 20px 0;
-			border-radius: 6px;
-		}
-
-		.warning strong {
-			color: #856404;
-		}
-
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			margin: 20px 0;
-		}
-
-		table th,
-		table td {
-			padding: 12px;
-			text-align: left;
-			border-bottom: 1px solid #ddd;
-		}
-
-		table th {
-			background: #f0f4f8;
-			color: #0066cc;
-			font-weight: 600;
-		}
-
-		table tr:hover {
-			background: #f8f9fa;
-		}
-
-		ul,
-		ol {
-			margin-left: 20px;
-			margin-bottom: 15px;
-		}
-
-		li {
-			margin-bottom: 8px;
-		}
-
-		.feature-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-			gap: 20px;
-			margin: 20px 0;
-		}
-
-		.feature-card {
-			background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
-			padding: 20px;
-			border-radius: 8px;
-			border-left: 4px solid #00a8e8;
-		}
-
-		.feature-card h4 {
-			color: #0066cc;
-			margin-bottom: 10px;
-		}
-
-		footer {
-			background: linear-gradient(135deg, #0052a3 0%, #0066cc 100%);
-			color: white;
-			text-align: center;
-			padding: 30px;
-			border-radius: 12px;
-			margin-top: 40px;
-		}
-
-		footer p {
-			color: rgba(255, 255, 255, 0.9);
-		}
-
-		@media (max-width: 768px) {
 			header h1 {
-				font-size: 1.8rem;
+				font-size: 2.5rem;
+				margin-bottom: 10px;
+				font-weight: 700;
+			}
+
+			header p {
+				font-size: 1.1rem;
+				opacity: 0.9;
+			}
+
+			.toc {
+				background: white;
+				padding: 30px;
+				border-radius: 12px;
+				margin-bottom: 40px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+				border-left: 4px solid #00a8e8;
+			}
+
+			.toc h2 {
+				color: #0066cc;
+				margin-bottom: 20px;
+				font-size: 1.5rem;
+			}
+
+			.toc ul {
+				list-style: none;
+			}
+
+			.toc li {
+				margin-bottom: 12px;
+			}
+
+			.toc a {
+				color: #0066cc;
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			.toc a:hover {
+				color: #00a8e8;
+				text-decoration: underline;
 			}
 
 			section {
-				padding: 25px;
+				background: white;
+				padding: 40px;
+				margin-bottom: 30px;
+				border-radius: 12px;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 			}
 
 			section h2 {
-				font-size: 1.4rem;
+				color: #0066cc;
+				font-size: 1.8rem;
+				margin-bottom: 25px;
+				padding-bottom: 15px;
+				border-bottom: 3px solid #00a8e8;
+			}
+
+			section h3 {
+				color: #0052a3;
+				font-size: 1.3rem;
+				margin-top: 25px;
+				margin-bottom: 15px;
+			}
+
+			section p {
+				margin-bottom: 15px;
+				color: #555;
+			}
+
+			.code-block {
+				background: #f5f9fc;
+				border-left: 4px solid #00a8e8;
+				padding: 15px;
+				margin: 20px 0;
+				border-radius: 6px;
+				overflow-x: auto;
+			}
+
+			.code-block code {
+				font-family: "Courier New", monospace;
+				color: #0066cc;
+				font-size: 0.9rem;
+				line-height: 1.5;
+			}
+
+			.tip {
+				background: #e8f4f8;
+				border-left: 4px solid #00a8e8;
+				padding: 15px;
+				margin: 20px 0;
+				border-radius: 6px;
+			}
+
+			.tip strong {
+				color: #0066cc;
+			}
+
+			.warning {
+				background: #fff3cd;
+				border-left: 4px solid #ffc107;
+				padding: 15px;
+				margin: 20px 0;
+				border-radius: 6px;
+			}
+
+			.warning strong {
+				color: #856404;
+			}
+
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 20px 0;
+			}
+
+			table th,
+			table td {
+				padding: 12px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+			}
+
+			table th {
+				background: #f0f4f8;
+				color: #0066cc;
+				font-weight: 600;
+			}
+
+			table tr:hover {
+				background: #f8f9fa;
+			}
+
+			ul,
+			ol {
+				margin-left: 20px;
+				margin-bottom: 15px;
+			}
+
+			li {
+				margin-bottom: 8px;
 			}
 
 			.feature-grid {
-				grid-template-columns: 1fr;
+				display: grid;
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(250px, 1fr)
+				);
+				gap: 20px;
+				margin: 20px 0;
 			}
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<!-- Header -->
-		<header>
-			<h1>🎨 SmartCare Home Customization Guide</h1>
-			<p>Learn how to modify and customize your landing page</p>
-		</header>
 
-		<!-- Table of Contents -->
-		<div class="toc">
-			<h2>📋 Table of Contents</h2>
-			<ul>
-				<li><a href="#getting-started">Getting Started</a></li>
-				<li><a href="#file-structure">File Structure</a></li>
-				<li><a href="#colors-branding">Colors & Branding</a></li>
-				<li><a href="#content">Content Modification</a></li>
-				<li><a href="#design">Design & Layout</a></li>
-				<li><a href="#responsive">Responsive Design</a></li>
-				<li><a href="#forms">Forms & Modals</a></li>
-				<li><a href="#advanced">Advanced Customization</a></li>
-				<li><a href="#faq">FAQ</a></li>
-			</ul>
+			.feature-card {
+				background: linear-gradient(
+					135deg,
+					#f8f9fa 0%,
+					#f0f4f8 100%
+				);
+				padding: 20px;
+				border-radius: 8px;
+				border-left: 4px solid #00a8e8;
+			}
+
+			.feature-card h4 {
+				color: #0066cc;
+				margin-bottom: 10px;
+			}
+
+			footer {
+				background: linear-gradient(
+					135deg,
+					#0052a3 0%,
+					#0066cc 100%
+				);
+				color: white;
+				text-align: center;
+				padding: 30px;
+				border-radius: 12px;
+				margin-top: 40px;
+			}
+
+			footer p {
+				color: rgba(255, 255, 255, 0.9);
+			}
+
+			@media (max-width: 768px) {
+				header h1 {
+					font-size: 1.8rem;
+				}
+
+				section {
+					padding: 25px;
+				}
+
+				section h2 {
+					font-size: 1.4rem;
+				}
+
+				.feature-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header -->
+			<header>
+				<h1>
+					🎨 SmartCare Home Customization Guide
+				</h1>
+				<p>
+					Learn how to modify and customize your
+					landing page
+				</p>
+			</header>
+
+			<!-- Table of Contents -->
+			<div class="toc">
+				<h2>📋 Table of Contents</h2>
+				<ul>
+					<li>
+						<a href="#getting-started"
+							>Getting Started</a
+						>
+					</li>
+					<li>
+						<a href="#file-structure"
+							>File Structure</a
+						>
+					</li>
+					<li>
+						<a href="#colors-branding"
+							>Colors & Branding</a
+						>
+					</li>
+					<li>
+						<a href="#content"
+							>Content Modification</a
+						>
+					</li>
+					<li>
+						<a href="#design">Design & Layout</a>
+					</li>
+					<li>
+						<a href="#responsive"
+							>Responsive Design</a
+						>
+					</li>
+					<li>
+						<a href="#forms">Forms & Modals</a>
+					</li>
+					<li>
+						<a href="#advanced"
+							>Advanced Customization</a
+						>
+					</li>
+					<li><a href="#faq">FAQ</a></li>
+				</ul>
+			</div>
+
+			<!-- Getting Started Section -->
+			<section id="getting-started">
+				<h2>🚀 Getting Started</h2>
+
+				<h3>Prerequisites</h3>
+				<ul>
+					<li>
+						Text editor (VS Code, Sublime Text,
+						Atom, or any code editor)
+					</li>
+					<li>
+						Web browser (Chrome, Firefox, Safari,
+						Edge)
+					</li>
+					<li>
+						Basic HTML/CSS knowledge (helpful but
+						not required)
+					</li>
+					<li>
+						FTP client or web hosting platform
+						(for deployment)
+					</li>
+				</ul>
+
+				<h3>Quick Setup</h3>
+				<ol>
+					<li>
+						Extract the downloaded files to your
+						project folder
+					</li>
+					<li>
+						Open <code>index.html</code> in your
+						browser to view the page
+					</li>
+					<li>
+						Open the project folder in your code
+						editor
+					</li>
+					<li>Start customizing!</li>
+				</ol>
+
+				<div class="tip">
+					<strong>💡 Tip:</strong> Use a local
+					server for development. In your project
+					directory, run
+					<code>python -m http.server 8000</code>
+					(Python 3) and visit
+					<code>http://localhost:8000</code>
+				</div>
+			</section>
+
+			<!-- File Structure -->
+			<section id="file-structure">
+				<h2>📁 File Structure</h2>
+
+				<div class="code-block">
+					<code>
+						smart-care-home-landing/<br />
+						├── index.html
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+						Main HTML file<br />
+						├── styles.css
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+						All styling & responsive design<br />
+						├── script.js
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+						Interactive functionality<br />
+						├── README.md
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+						Project documentation<br />
+						├── CUSTOMIZATION_GUIDE.html
+						&nbsp;&nbsp;# This file<br />
+						└── LICENSE
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+						License information
+					</code>
+				</div>
+
+				<h3>What Each File Does</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>File</th>
+							<th>Purpose</th>
+							<th>When to Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>index.html</strong></td>
+							<td>
+								Contains all page content and
+								structure
+							</td>
+							<td>
+								When changing text, adding
+								sections, or modifying layout
+							</td>
+						</tr>
+						<tr>
+							<td><strong>styles.css</strong></td>
+							<td>
+								Controls all styling, colors, and
+								responsive design
+							</td>
+							<td>
+								When changing colors, fonts,
+								spacing, or responsive behavior
+							</td>
+						</tr>
+						<tr>
+							<td><strong>script.js</strong></td>
+							<td>
+								Handles interactivity, animations,
+								and forms
+							</td>
+							<td>
+								When adding features, fixing
+								interactions, or customizing
+								animations
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<!-- Colors & Branding -->
+			<section id="colors-branding">
+				<h2>🎨 Colors & Branding</h2>
+
+				<h3>Current Color Palette</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Usage</th>
+							<th>Color Code</th>
+							<th>RGB</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>Primary</strong></td>
+							<td>#0066cc</td>
+							<td>rgb(0, 102, 204)</td>
+							<td>Trust & Professional Blue</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Primary Light</strong>
+							</td>
+							<td>#00a8e8</td>
+							<td>rgb(0, 168, 232)</td>
+							<td>Accent & Highlights</td>
+						</tr>
+						<tr>
+							<td><strong>Secondary</strong></td>
+							<td>#00b894</td>
+							<td>rgb(0, 184, 148)</td>
+							<td>Growth & Health Green</td>
+						</tr>
+						<tr>
+							<td><strong>Accent</strong></td>
+							<td>#f39c12</td>
+							<td>rgb(243, 156, 18)</td>
+							<td>Warmth & Care Gold</td>
+						</tr>
+						<tr>
+							<td><strong>Dark Text</strong></td>
+							<td>#2c3e50</td>
+							<td>rgb(44, 62, 80)</td>
+							<td>Main text color</td>
+						</tr>
+						<tr>
+							<td><strong>Light Text</strong></td>
+							<td>#7f8c8d</td>
+							<td>rgb(127, 140, 141)</td>
+							<td>Secondary text</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>How to Change Colors</h3>
+				<p>
+					Open <code>styles.css</code> and find
+					the CSS variables at the top:
+				</p>
+
+				<div class="code-block">
+					<code>
+						:root {<br />
+						&nbsp;&nbsp;--primary-color:
+						#0066cc;<br />
+						&nbsp;&nbsp;--secondary-color:
+						#00b894;<br />
+						&nbsp;&nbsp;--accent-color:
+						#f39c12;<br />
+						&nbsp;&nbsp;--dark-text: #2c3e50;<br />
+						&nbsp;&nbsp;--light-text: #7f8c8d;<br />
+						}<br />
+					</code>
+				</div>
+
+				<p>
+					Change any color code and it will update
+					throughout the entire site
+					automatically!
+				</p>
+
+				<div class="tip">
+					<strong>💡 Tip:</strong> Use a color
+					picker tool like
+					<a
+						href="https://htmlcolorcodes.com"
+						target="_blank"
+						>htmlcolorcodes.com</a
+					>
+					to find the perfect color hex code.
+				</div>
+
+				<h3>Changing the Logo</h3>
+				<p>
+					The logo text is in the navbar. Find
+					this in <code>index.html</code>:
+				</p>
+
+				<div class="code-block">
+					<code>
+						&lt;div class="logo"&gt;<br />
+						&nbsp;&nbsp;&lt;i class="fas
+						fa-heart-pulse"&gt;&lt;/i&gt;<br />
+						&nbsp;&nbsp;&lt;span
+						class="logo-text"&gt;SmartCare&lt;/span&gt;<br />
+						&lt;/div&gt;
+					</code>
+				</div>
+
+				<p>
+					Replace "SmartCare" with your brand
+					name. To change the icon, visit
+					<a
+						href="https://fontawesome.com"
+						target="_blank"
+						>Font Awesome Icons</a
+					>
+					and find a different icon class.
+				</p>
+			</section>
+
+			<!-- Content Modification -->
+			<section id="content">
+				<h2>✏️ Content Modification</h2>
+
+				<h3>Changing Headings & Text</h3>
+				<p>
+					All text content is in
+					<code>index.html</code>. Simply open the
+					file and locate the text you want to
+					change. Most content is straightforward
+					to find:
+				</p>
+
+				<ul>
+					<li>
+						<strong>Hero Title:</strong> Search
+						for "Smart Monitoring for Safer
+						Independent Living"
+					</li>
+					<li>
+						<strong>Section Titles:</strong>
+						Search for "How It Works", "Benefits",
+						"Testimonials", etc.
+					</li>
+					<li>
+						<strong>Description Text:</strong>
+						Look for paragraphs with &lt;p&gt;
+						tags
+					</li>
+					<li>
+						<strong>Button Text:</strong> Search
+						for "Schedule Demo", "Learn More",
+						etc.
+					</li>
+				</ul>
+
+				<h3>Adding/Removing Sections</h3>
+				<p>
+					Each section has a similar structure. To
+					add a new section:
+				</p>
+
+				<ol>
+					<li>
+						Find an existing section block (e.g.,
+						&lt;section
+						class="benefits"&gt;...&lt;/section&gt;)
+					</li>
+					<li>Copy the entire section</li>
+					<li>
+						Paste it where you want the new
+						section
+					</li>
+					<li>
+						Change the class name (e.g., from
+						"benefits" to "my-section")
+					</li>
+					<li>
+						Update the content and styling in CSS
+						as needed
+					</li>
+				</ol>
+
+				<div class="warning">
+					<strong>⚠️ Important:</strong> Always
+					maintain matching opening and closing
+					tags. If you add an opening &lt;div&gt;,
+					make sure you add a closing
+					&lt;/div&gt;.
+				</div>
+
+				<h3>Updating Contact Information</h3>
+				<p>
+					Contact info is typically in the footer.
+					Search for your current information
+					(phone, email) and replace with new
+					details.
+				</p>
+			</section>
+
+			<!-- Design & Layout -->
+			<section id="design">
+				<h2>🖌️ Design & Layout</h2>
+
+				<h3>Changing Fonts</h3>
+				<p>
+					Font family is defined in
+					<code>styles.css</code>:
+				</p>
+
+				<div class="code-block">
+					<code>
+						body {<br />
+						&nbsp;&nbsp;font-family: "Segoe UI",
+						Tahoma, Geneva, Verdana,
+						sans-serif;<br />
+						}
+					</code>
+				</div>
+
+				<p>
+					To change fonts, visit
+					<a
+						href="https://fonts.google.com"
+						target="_blank"
+						>Google Fonts</a
+					>, select a font, and copy the import
+					statement and font-family CSS.
+				</p>
+
+				<h3>Adjusting Spacing & Padding</h3>
+				<p>
+					Most spacing is controlled by
+					<code>padding</code> and
+					<code>margin</code> properties in CSS:
+				</p>
+
+				<div class="code-block">
+					<code>
+						section {<br />
+						&nbsp;&nbsp;padding: 40px
+						20px;&nbsp;&nbsp;&nbsp;&nbsp;/*
+						top/bottom 40px, left/right 20px */<br />
+						&nbsp;&nbsp;margin-bottom:
+						30px;&nbsp;&nbsp;&nbsp;&nbsp;/* space
+						below section */<br />
+						}
+					</code>
+				</div>
+
+				<p>
+					Adjust these values to increase or
+					decrease spacing between elements.
+				</p>
+
+				<h3>Button Styling</h3>
+				<p>
+					All buttons use the
+					<code>.btn</code> class in
+					<code>styles.css</code>. To change
+					button appearance:
+				</p>
+
+				<div class="code-block">
+					<code>
+						.btn {<br />
+						&nbsp;&nbsp;background-color:
+						#0066cc;&nbsp;&nbsp;&nbsp;&nbsp;/*
+						Button color */<br />
+						&nbsp;&nbsp;padding: 12px
+						28px;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*
+						Button size */<br />
+						&nbsp;&nbsp;border-radius:
+						6px;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*
+						Corner roundness */<br />
+						}
+					</code>
+				</div>
+
+				<h3>Card & Component Styling</h3>
+				<p>
+					Cards use common styling. To modify all
+					cards:
+				</p>
+
+				<div class="code-block">
+					<code>
+						.card {<br />
+						&nbsp;&nbsp;background: white;<br />
+						&nbsp;&nbsp;padding: 25px;<br />
+						&nbsp;&nbsp;border-radius: 12px;<br />
+						&nbsp;&nbsp;box-shadow: 0 2px 8px
+						rgba(0,0,0,0.1);<br />
+						}
+					</code>
+				</div>
+
+				<p>
+					Adjust <code>padding</code>,
+					<code>border-radius</code>, and
+					<code>box-shadow</code> for different
+					looks.
+				</p>
+			</section>
+
+			<!-- Responsive Design -->
+			<section id="responsive">
+				<h2>📱 Responsive Design</h2>
+
+				<h3>Understanding Breakpoints</h3>
+				<p>
+					The site uses these breakpoints for
+					responsive design:
+				</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Device Type</th>
+							<th>Screen Width</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><strong>Desktop</strong></td>
+							<td>1200px and above</td>
+							<td>
+								Full layout with all elements
+								visible
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Tablet Large</strong>
+							</td>
+							<td>1024px - 1199px</td>
+							<td>Slightly adjusted spacing</td>
+						</tr>
+						<tr>
+							<td><strong>Tablet</strong></td>
+							<td>769px - 1023px</td>
+							<td>
+								Optimized for tablet screens
+							</td>
+						</tr>
+						<tr>
+							<td><strong>Mobile</strong></td>
+							<td>480px - 768px</td>
+							<td>
+								Single column, larger touch
+								targets
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Small Mobile</strong>
+							</td>
+							<td>Below 480px</td>
+							<td>
+								Compact layout for small phones
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<h3>Creating Responsive Styles</h3>
+				<p>
+					Use media queries to adjust styles for
+					different screen sizes:
+				</p>
+
+				<div class="code-block">
+					<code>
+						/* Desktop styles (default) */<br />
+						.section-title {<br />
+						&nbsp;&nbsp;font-size: 2.5rem;<br />
+						}<br />
+						<br />
+						/* Tablet styles */<br />
+						@media (max-width: 768px) {<br />
+						&nbsp;&nbsp;.section-title {<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;font-size:
+						1.8rem;<br />
+						&nbsp;&nbsp;}<br />
+						}<br />
+						<br />
+						/* Mobile styles */<br />
+						@media (max-width: 480px) {<br />
+						&nbsp;&nbsp;.section-title {<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;font-size:
+						1.4rem;<br />
+						&nbsp;&nbsp;}<br />
+						}
+					</code>
+				</div>
+
+				<div class="tip">
+					<strong>💡 Tip:</strong> Test your
+					changes on different screen sizes using
+					browser DevTools (F12 in Chrome) and
+					click the responsive design mode icon.
+				</div>
+			</section>
+
+			<!-- Forms & Modals -->
+			<section id="forms">
+				<h2>📋 Forms & Modals</h2>
+
+				<h3>Editing Form Fields</h3>
+				<p>
+					Form inputs are in the modal sections of
+					<code>index.html</code>. Each form has
+					input fields:
+				</p>
+
+				<div class="code-block">
+					<code>
+						&lt;input<br />
+						&nbsp;&nbsp;type="text"<br />
+						&nbsp;&nbsp;placeholder="Your Name"<br />
+						&nbsp;&nbsp;required<br />
+						/&gt;
+					</code>
+				</div>
+
+				<p>Common input types:</p>
+				<ul>
+					<li>
+						<code>type="text"</code> - Standard
+						text input
+					</li>
+					<li>
+						<code>type="email"</code> - Email
+						validation
+					</li>
+					<li>
+						<code>type="tel"</code> - Phone number
+					</li>
+					<li>
+						<code>type="date"</code> - Date picker
+					</li>
+					<li>
+						<code>type="select"</code> - Dropdown
+						menu
+					</li>
+					<li>
+						<code>type="textarea"</code> - Large
+						text area
+					</li>
+				</ul>
+
+				<h3>Modal Styling</h3>
+				<p>
+					Modal appearance is controlled by CSS
+					classes: <code>.modal</code>,
+					<code>.modal-content</code>,
+					<code>.modal-close</code>, etc.
+				</p>
+
+				<p>
+					To change modal colors, search for
+					<code>.modal-content</code> in
+					styles.css and adjust the background
+					gradient or border colors.
+				</p>
+
+				<h3>Form Validation</h3>
+				<p>
+					Basic validation is handled by the
+					<code>required</code> attribute on
+					inputs. For more advanced validation,
+					edit the form submission handling in
+					<code>script.js</code>.
+				</p>
+
+				<div class="tip">
+					<strong>💡 Tip:</strong> Add the
+					<code>required</code> attribute to any
+					field that must be filled out before
+					form submission.
+				</div>
+			</section>
+
+			<!-- Advanced Customization -->
+			<section id="advanced">
+				<h2>⚙️ Advanced Customization</h2>
+
+				<h3>Adding Custom Animations</h3>
+				<p>
+					Animations are defined with @keyframes
+					in CSS. To add a new animation:
+				</p>
+
+				<div class="code-block">
+					<code>
+						@keyframes slideIn {<br />
+						&nbsp;&nbsp;from {<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;transform:
+						translateX(-50px);<br />
+						&nbsp;&nbsp;}<br />
+						&nbsp;&nbsp;to {<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;transform:
+						translateX(0);<br />
+						&nbsp;&nbsp;}<br />
+						}<br />
+						<br />
+						.my-element {<br />
+						&nbsp;&nbsp;animation: slideIn 0.5s
+						ease;<br />
+						}
+					</code>
+				</div>
+
+				<h3>JavaScript Customization</h3>
+				<p><code>script.js</code> handles:</p>
+				<ul>
+					<li>Modal opening/closing</li>
+					<li>Mobile menu toggling</li>
+					<li>Scroll animations</li>
+					<li>Form submissions</li>
+					<li>Newsletter handling</li>
+				</ul>
+
+				<p>
+					To add custom functionality, add new
+					functions to <code>script.js</code> and
+					call them from your HTML elements using
+					<code>onclick</code> attributes.
+				</p>
+
+				<h3>Adding Third-Party Services</h3>
+				<p>
+					To integrate services like email
+					providers, analytics, or chat:
+				</p>
+
+				<ol>
+					<li>
+						Get the integration code from the
+						service provider
+					</li>
+					<li>
+						Add it to the appropriate location in
+						<code>index.html</code> (usually in
+						&lt;head&gt; or before &lt;/body&gt;)
+					</li>
+					<li>
+						Configure any settings in the
+						service's dashboard
+					</li>
+					<li>Test the integration</li>
+				</ol>
+
+				<div class="warning">
+					<strong>⚠️ Important:</strong> When
+					adding third-party scripts, make sure
+					they don't conflict with existing
+					JavaScript. Test thoroughly before
+					deploying.
+				</div>
+
+				<h3>SEO Optimization</h3>
+				<p>
+					To improve search engine visibility,
+					edit the meta tags in the &lt;head&gt;
+					of index.html:
+				</p>
+
+				<div class="code-block">
+					<code>
+						&lt;meta name="description"
+						content="Your page description"
+						/&gt;<br />
+						&lt;meta name="keywords"
+						content="keyword1, keyword2, keyword3"
+						/&gt;<br />
+						&lt;meta property="og:title"
+						content="Page Title" /&gt;<br />
+						&lt;meta property="og:description"
+						content="Page description" /&gt;
+					</code>
+				</div>
+
+				<h3>Favicon Customization & Branding</h3>
+				<p>
+					The favicon is the small icon displayed
+					in browser tabs. The landing page
+					includes a professional SVG favicon with
+					a heart-pulse design representing
+					healthcare monitoring. To customize it:
+				</p>
+
+				<h4>
+					Option 1: Modify the Existing SVG
+					Favicon
+				</h4>
+				<p>
+					Edit <code>favicon.svg</code> directly
+					in any text editor:
+				</p>
+				<div class="code-block">
+					<code>
+						&lt;svg viewBox="0 0 256 256"
+						xmlns="http://www.w3.org/2000/svg"&gt;<br />
+						&nbsp;&nbsp;&lt;defs&gt;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;linearGradient
+						id="bgGradient"&gt;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;stop
+						offset="0%" stop-color="#0066cc"
+						/&gt;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;stop
+						offset="100%" stop-color="#00a8e8"
+						/&gt;<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;/linearGradient&gt;<br />
+						&nbsp;&nbsp;&lt;/defs&gt;<br />
+						&nbsp;&nbsp;&lt;!-- Change gradient
+						colors above --&gt;<br />
+						&lt;/svg&gt;
+					</code>
+				</div>
+
+				<h4>Option 2: Generate a New Favicon</h4>
+				<p>
+					Use these free online tools to create
+					your custom favicon:
+				</p>
+				<ul>
+					<li>
+						<strong>favicon.io:</strong>
+						https://favicon.io/ - Create favicons
+						from text, images, or emoji
+					</li>
+					<li>
+						<strong>RealFaviconGenerator:</strong>
+						https://realfavicongenerator.net/ -
+						Professional favicon generation for
+						all platforms
+					</li>
+					<li>
+						<strong>Favicon Generator:</strong>
+						https://www.favicon-generator.org/ -
+						Simple online generator
+					</li>
+				</ul>
+
+				<h4>
+					Option 3: Replace with Your Own Icon
+				</h4>
+				<p>
+					If you have a custom favicon file
+					(favicon.ico, favicon.png, etc.):
+				</p>
+				<div class="code-block">
+					<code>
+						1. Replace the
+						<code>favicon.svg</code> file with
+						your custom favicon<br />
+						2. Update the link in
+						<code>index.html</code> if needed:<br />
+						<br />
+						&lt;link rel="icon"
+						type="image/svg+xml"
+						href="favicon.svg" /&gt;<br />
+						<br />
+						3. For PNG favicons, use:<br />
+						&lt;link rel="icon" type="image/png"
+						href="favicon.png" /&gt;<br />
+						<br />
+						4. For ICO favicons, use:<br />
+						&lt;link rel="icon" href="favicon.ico"
+						/&gt;
+					</code>
+				</div>
+
+				<h4>Favicon Color Palette</h4>
+				<p>
+					The current favicon uses the SmartCare
+					brand colors:
+				</p>
+				<ul>
+					<li>
+						<strong>Primary Blue:</strong> #0066cc
+						(gradient start)
+					</li>
+					<li>
+						<strong>Accent Cyan:</strong>
+						#00a8e8 (gradient end)
+					</li>
+					<li>
+						<strong>Icon Color:</strong> #ffffff
+						(white for visibility)
+					</li>
+				</ul>
+
+				<div class="tip">
+					<strong>💡 Tip:</strong> For best
+					results, ensure your favicon has good
+					contrast and is recognizable at small
+					sizes (16px, 32px). Test your favicon in
+					different browsers to ensure
+					compatibility.
+				</div>
+			</section>
+
+			<!-- FAQ -->
+			<section id="faq">
+				<h2>❓ Frequently Asked Questions</h2>
+
+				<h3>Q: How do I add a new section?</h3>
+				<p>
+					<strong>A:</strong> Copy an existing
+					section block in index.html, paste it
+					where you want it, and customize the
+					content and styling. Don't forget to
+					create corresponding CSS classes in
+					styles.css.
+				</p>
+
+				<h3>Q: Can I use my own fonts?</h3>
+				<p>
+					<strong>A:</strong> Yes! Go to Google
+					Fonts, select a font, and follow their
+					instructions to import it into
+					styles.css. Then update the font-family
+					in your CSS.
+				</p>
+
+				<h3>
+					Q: How do I change the responsive
+					breakpoints?
+				</h3>
+				<p>
+					<strong>A:</strong> Search for
+					<code>@media (max-width:</code> in
+					styles.css. Change the pixel values
+					(e.g., 768px to 800px) to adjust
+					breakpoints.
+				</p>
+
+				<h3>
+					Q: What's the best way to test my
+					changes?
+				</h3>
+				<p>
+					<strong>A:</strong> Use your browser's
+					DevTools (F12) and toggle responsive
+					design mode. Test at different
+					breakpoints (480px, 768px, 1024px,
+					desktop) to ensure everything looks
+					good.
+				</p>
+
+				<h3>
+					Q: How do I add social media links?
+				</h3>
+				<p>
+					<strong>A:</strong> Find the social
+					links section in index.html (usually in
+					the footer) and update the href
+					attributes to point to your social media
+					profiles.
+				</p>
+
+				<h3>
+					Q: Can I remove sections I don't need?
+				</h3>
+				<p>
+					<strong>A:</strong> Yes! Simply delete
+					the entire
+					&lt;section&gt;...&lt;/section&gt; block
+					from index.html. You can also remove its
+					CSS styling from styles.css if desired.
+				</p>
+
+				<h3>
+					Q: How do I deploy this to a website?
+				</h3>
+				<p>
+					<strong>A:</strong> Upload all files to
+					your web hosting service using FTP, or
+					use your hosting's file manager. Most
+					hosting providers have built-in
+					documentation for deploying HTML files.
+				</p>
+
+				<h3>Q: Is this mobile-friendly?</h3>
+				<p>
+					<strong>A:</strong> Yes! The template is
+					fully responsive and works great on all
+					devices. Test it using your browser's
+					responsive design mode.
+				</p>
+
+				<h3>Q: How do I modify the footer?</h3>
+				<p>
+					<strong>A:</strong> The footer is
+					typically at the bottom of index.html
+					inside a &lt;footer&gt; tag. Edit the
+					content directly, and adjust its styling
+					in styles.css using the footer class.
+				</p>
+
+				<h3>Q: Can I add a newsletter signup?</h3>
+				<p>
+					<strong>A:</strong> The template already
+					has a newsletter form. To make it
+					functional, integrate it with an email
+					service provider like Mailchimp or Brevo
+					(formerly Sendinblue).
+				</p>
+			</section>
+
+			<!-- Footer -->
+			<footer>
+				<p>
+					🎨
+					<strong
+						>SmartCare Home Customization
+						Guide</strong
+					>
+				</p>
+				<p>
+					Start customizing today and make it your
+					own! 🚀
+				</p>
+				<p
+					style="
+						margin-top: 15px;
+						opacity: 0.8;
+						font-size: 0.9rem;
+					"
+				>
+					Last Updated: November 2025
+				</p>
+			</footer>
 		</div>
-
-		<!-- Getting Started Section -->
-		<section id="getting-started">
-			<h2>🚀 Getting Started</h2>
-
-			<h3>Prerequisites</h3>
-			<ul>
-				<li>Text editor (VS Code, Sublime Text, Atom, or any code editor)</li>
-				<li>Web browser (Chrome, Firefox, Safari, Edge)</li>
-				<li>Basic HTML/CSS knowledge (helpful but not required)</li>
-				<li>FTP client or web hosting platform (for deployment)</li>
-			</ul>
-
-			<h3>Quick Setup</h3>
-			<ol>
-				<li>Extract the downloaded files to your project folder</li>
-				<li>Open <code>index.html</code> in your browser to view the page</li>
-				<li>Open the project folder in your code editor</li>
-				<li>Start customizing!</li>
-			</ol>
-
-			<div class="tip">
-				<strong>💡 Tip:</strong> Use a local server for development. In your project directory, run
-				<code>python -m http.server 8000</code> (Python 3) and visit
-				<code>http://localhost:8000</code>
-			</div>
-		</section>
-
-		<!-- File Structure -->
-		<section id="file-structure">
-			<h2>📁 File Structure</h2>
-
-			<div class="code-block">
-				<code>
-					smart-care-home-landing/<br />
-					├── index.html &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Main HTML file<br />
-					├── styles.css &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# All styling & responsive design<br />
-					├── script.js &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Interactive functionality<br />
-					├── README.md &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Project documentation<br />
-					├── CUSTOMIZATION_GUIDE.html &nbsp;&nbsp;# This file<br />
-					└── LICENSE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# License information
-				</code>
-			</div>
-
-			<h3>What Each File Does</h3>
-			<table>
-				<thead>
-					<tr>
-						<th>File</th>
-						<th>Purpose</th>
-						<th>When to Edit</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>index.html</strong></td>
-						<td>Contains all page content and structure</td>
-						<td>When changing text, adding sections, or modifying layout</td>
-					</tr>
-					<tr>
-						<td><strong>styles.css</strong></td>
-						<td>Controls all styling, colors, and responsive design</td>
-						<td>When changing colors, fonts, spacing, or responsive behavior</td>
-					</tr>
-					<tr>
-						<td><strong>script.js</strong></td>
-						<td>Handles interactivity, animations, and forms</td>
-						<td>When adding features, fixing interactions, or customizing animations</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
-
-		<!-- Colors & Branding -->
-		<section id="colors-branding">
-			<h2>🎨 Colors & Branding</h2>
-
-			<h3>Current Color Palette</h3>
-			<table>
-				<thead>
-					<tr>
-						<th>Usage</th>
-						<th>Color Code</th>
-						<th>RGB</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>Primary</strong></td>
-						<td>#0066cc</td>
-						<td>rgb(0, 102, 204)</td>
-						<td>Trust & Professional Blue</td>
-					</tr>
-					<tr>
-						<td><strong>Primary Light</strong></td>
-						<td>#00a8e8</td>
-						<td>rgb(0, 168, 232)</td>
-						<td>Accent & Highlights</td>
-					</tr>
-					<tr>
-						<td><strong>Secondary</strong></td>
-						<td>#00b894</td>
-						<td>rgb(0, 184, 148)</td>
-						<td>Growth & Health Green</td>
-					</tr>
-					<tr>
-						<td><strong>Accent</strong></td>
-						<td>#f39c12</td>
-						<td>rgb(243, 156, 18)</td>
-						<td>Warmth & Care Gold</td>
-					</tr>
-					<tr>
-						<td><strong>Dark Text</strong></td>
-						<td>#2c3e50</td>
-						<td>rgb(44, 62, 80)</td>
-						<td>Main text color</td>
-					</tr>
-					<tr>
-						<td><strong>Light Text</strong></td>
-						<td>#7f8c8d</td>
-						<td>rgb(127, 140, 141)</td>
-						<td>Secondary text</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<h3>How to Change Colors</h3>
-			<p>Open <code>styles.css</code> and find the CSS variables at the top:</p>
-
-			<div class="code-block">
-				<code>
-					:root {<br />
-					&nbsp;&nbsp;--primary-color: #0066cc;<br />
-					&nbsp;&nbsp;--secondary-color: #00b894;<br />
-					&nbsp;&nbsp;--accent-color: #f39c12;<br />
-					&nbsp;&nbsp;--dark-text: #2c3e50;<br />
-					&nbsp;&nbsp;--light-text: #7f8c8d;<br />
-					}<br />
-				</code>
-			</div>
-
-			<p>Change any color code and it will update throughout the entire site automatically!</p>
-
-			<div class="tip">
-				<strong>💡 Tip:</strong> Use a color picker tool like
-				<a href="https://htmlcolorcodes.com" target="_blank">htmlcolorcodes.com</a>
-				to find the perfect color hex code.
-			</div>
-
-			<h3>Changing the Logo</h3>
-			<p>The logo text is in the navbar. Find this in <code>index.html</code>:</p>
-
-			<div class="code-block">
-				<code>
-					&lt;div class="logo"&gt;<br />
-					&nbsp;&nbsp;&lt;i class="fas fa-heart-pulse"&gt;&lt;/i&gt;<br />
-					&nbsp;&nbsp;&lt;span class="logo-text"&gt;SmartCare&lt;/span&gt;<br />
-					&lt;/div&gt;
-				</code>
-			</div>
-
-			<p>Replace "SmartCare" with your brand name. To change the icon, visit
-				<a href="https://fontawesome.com" target="_blank">Font Awesome Icons</a>
-				and find a different icon class.
-			</p>
-		</section>
-
-		<!-- Content Modification -->
-		<section id="content">
-			<h2>✏️ Content Modification</h2>
-
-			<h3>Changing Headings & Text</h3>
-			<p>All text content is in <code>index.html</code>. Simply open the file and locate the text you want to change.
-				Most content is straightforward to find:</p>
-
-			<ul>
-				<li><strong>Hero Title:</strong> Search for "Smart Monitoring for Safer Independent Living"</li>
-				<li><strong>Section Titles:</strong> Search for "How It Works", "Benefits", "Testimonials", etc.</li>
-				<li><strong>Description Text:</strong> Look for paragraphs with &lt;p&gt; tags</li>
-				<li><strong>Button Text:</strong> Search for "Schedule Demo", "Learn More", etc.</li>
-			</ul>
-
-			<h3>Adding/Removing Sections</h3>
-			<p>Each section has a similar structure. To add a new section:</p>
-
-			<ol>
-				<li>Find an existing section block (e.g., &lt;section class="benefits"&gt;...&lt;/section&gt;)</li>
-				<li>Copy the entire section</li>
-				<li>Paste it where you want the new section</li>
-				<li>Change the class name (e.g., from "benefits" to "my-section")</li>
-				<li>Update the content and styling in CSS as needed</li>
-			</ol>
-
-			<div class="warning">
-				<strong>⚠️ Important:</strong> Always maintain matching opening and closing tags. If you add an opening
-				&lt;div&gt;, make sure you add a closing &lt;/div&gt;.
-			</div>
-
-			<h3>Updating Contact Information</h3>
-			<p>Contact info is typically in the footer. Search for your current information (phone, email) and replace with
-				new details.</p>
-		</section>
-
-		<!-- Design & Layout -->
-		<section id="design">
-			<h2>🖌️ Design & Layout</h2>
-
-			<h3>Changing Fonts</h3>
-			<p>Font family is defined in <code>styles.css</code>:</p>
-
-			<div class="code-block">
-				<code>
-					body {<br />
-					&nbsp;&nbsp;font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;<br />
-					}
-				</code>
-			</div>
-
-			<p>To change fonts, visit <a href="https://fonts.google.com" target="_blank">Google Fonts</a>, select a font,
-				and copy the import statement and font-family CSS.</p>
-
-			<h3>Adjusting Spacing & Padding</h3>
-			<p>Most spacing is controlled by <code>padding</code> and <code>margin</code> properties in CSS:</p>
-
-			<div class="code-block">
-				<code>
-					section {<br />
-					&nbsp;&nbsp;padding: 40px 20px;&nbsp;&nbsp;&nbsp;&nbsp;/* top/bottom 40px, left/right 20px */<br />
-					&nbsp;&nbsp;margin-bottom: 30px;&nbsp;&nbsp;&nbsp;&nbsp;/* space below section */<br />
-					}
-				</code>
-			</div>
-
-			<p>Adjust these values to increase or decrease spacing between elements.</p>
-
-			<h3>Button Styling</h3>
-			<p>All buttons use the <code>.btn</code> class in <code>styles.css</code>. To change button appearance:</p>
-
-			<div class="code-block">
-				<code>
-					.btn {<br />
-					&nbsp;&nbsp;background-color: #0066cc;&nbsp;&nbsp;&nbsp;&nbsp;/* Button color */<br />
-					&nbsp;&nbsp;padding: 12px 28px;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Button size */<br />
-					&nbsp;&nbsp;border-radius: 6px;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* Corner roundness */<br />
-					}
-				</code>
-			</div>
-
-			<h3>Card & Component Styling</h3>
-			<p>Cards use common styling. To modify all cards:</p>
-
-			<div class="code-block">
-				<code>
-					.card {<br />
-					&nbsp;&nbsp;background: white;<br />
-					&nbsp;&nbsp;padding: 25px;<br />
-					&nbsp;&nbsp;border-radius: 12px;<br />
-					&nbsp;&nbsp;box-shadow: 0 2px 8px rgba(0,0,0,0.1);<br />
-					}
-				</code>
-			</div>
-
-			<p>Adjust <code>padding</code>, <code>border-radius</code>, and <code>box-shadow</code> for different looks.</p>
-		</section>
-
-		<!-- Responsive Design -->
-		<section id="responsive">
-			<h2>📱 Responsive Design</h2>
-
-			<h3>Understanding Breakpoints</h3>
-			<p>The site uses these breakpoints for responsive design:</p>
-
-			<table>
-				<thead>
-					<tr>
-						<th>Device Type</th>
-						<th>Screen Width</th>
-						<th>Description</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>Desktop</strong></td>
-						<td>1200px and above</td>
-						<td>Full layout with all elements visible</td>
-					</tr>
-					<tr>
-						<td><strong>Tablet Large</strong></td>
-						<td>1024px - 1199px</td>
-						<td>Slightly adjusted spacing</td>
-					</tr>
-					<tr>
-						<td><strong>Tablet</strong></td>
-						<td>769px - 1023px</td>
-						<td>Optimized for tablet screens</td>
-					</tr>
-					<tr>
-						<td><strong>Mobile</strong></td>
-						<td>480px - 768px</td>
-						<td>Single column, larger touch targets</td>
-					</tr>
-					<tr>
-						<td><strong>Small Mobile</strong></td>
-						<td>Below 480px</td>
-						<td>Compact layout for small phones</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<h3>Creating Responsive Styles</h3>
-			<p>Use media queries to adjust styles for different screen sizes:</p>
-
-			<div class="code-block">
-				<code>
-					/* Desktop styles (default) */<br />
-					.section-title {<br />
-					&nbsp;&nbsp;font-size: 2.5rem;<br />
-					}<br />
-					<br />
-					/* Tablet styles */<br />
-					@media (max-width: 768px) {<br />
-					&nbsp;&nbsp;.section-title {<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.8rem;<br />
-					&nbsp;&nbsp;}<br />
-					}<br />
-					<br />
-					/* Mobile styles */<br />
-					@media (max-width: 480px) {<br />
-					&nbsp;&nbsp;.section-title {<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.4rem;<br />
-					&nbsp;&nbsp;}<br />
-					}
-				</code>
-			</div>
-
-			<div class="tip">
-				<strong>💡 Tip:</strong> Test your changes on different screen sizes using browser DevTools (F12 in
-				Chrome) and click the responsive design mode icon.
-			</div>
-		</section>
-
-		<!-- Forms & Modals -->
-		<section id="forms">
-			<h2>📋 Forms & Modals</h2>
-
-			<h3>Editing Form Fields</h3>
-			<p>Form inputs are in the modal sections of <code>index.html</code>. Each form has input fields:</p>
-
-			<div class="code-block">
-				<code>
-					&lt;input<br />
-					&nbsp;&nbsp;type="text"<br />
-					&nbsp;&nbsp;placeholder="Your Name"<br />
-					&nbsp;&nbsp;required<br />
-					/&gt;
-				</code>
-			</div>
-
-			<p>Common input types:</p>
-			<ul>
-				<li><code>type="text"</code> - Standard text input</li>
-				<li><code>type="email"</code> - Email validation</li>
-				<li><code>type="tel"</code> - Phone number</li>
-				<li><code>type="date"</code> - Date picker</li>
-				<li><code>type="select"</code> - Dropdown menu</li>
-				<li><code>type="textarea"</code> - Large text area</li>
-			</ul>
-
-			<h3>Modal Styling</h3>
-			<p>Modal appearance is controlled by CSS classes: <code>.modal</code>, <code>.modal-content</code>,
-				<code>.modal-close</code>, etc.</p>
-
-			<p>To change modal colors, search for <code>.modal-content</code> in styles.css and adjust the background
-				gradient or border colors.</p>
-
-			<h3>Form Validation</h3>
-			<p>Basic validation is handled by the <code>required</code> attribute on inputs. For more advanced validation,
-				edit the form submission handling in <code>script.js</code>.</p>
-
-			<div class="tip">
-				<strong>💡 Tip:</strong> Add the <code>required</code> attribute to any field that must be filled out
-				before form submission.
-			</div>
-		</section>
-
-		<!-- Advanced Customization -->
-		<section id="advanced">
-			<h2>⚙️ Advanced Customization</h2>
-
-			<h3>Adding Custom Animations</h3>
-			<p>Animations are defined with @keyframes in CSS. To add a new animation:</p>
-
-			<div class="code-block">
-				<code>
-					@keyframes slideIn {<br />
-					&nbsp;&nbsp;from {<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;transform: translateX(-50px);<br />
-					&nbsp;&nbsp;}<br />
-					&nbsp;&nbsp;to {<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;transform: translateX(0);<br />
-					&nbsp;&nbsp;}<br />
-					}<br />
-					<br />
-					.my-element {<br />
-					&nbsp;&nbsp;animation: slideIn 0.5s ease;<br />
-					}
-				</code>
-			</div>
-
-			<h3>JavaScript Customization</h3>
-			<p><code>script.js</code> handles:</p>
-			<ul>
-				<li>Modal opening/closing</li>
-				<li>Mobile menu toggling</li>
-				<li>Scroll animations</li>
-				<li>Form submissions</li>
-				<li>Newsletter handling</li>
-			</ul>
-
-			<p>To add custom functionality, add new functions to <code>script.js</code> and call them from your HTML
-				elements using <code>onclick</code> attributes.</p>
-
-			<h3>Adding Third-Party Services</h3>
-			<p>To integrate services like email providers, analytics, or chat:</p>
-
-			<ol>
-				<li>Get the integration code from the service provider</li>
-				<li>Add it to the appropriate location in <code>index.html</code> (usually in &lt;head&gt; or before
-					&lt;/body&gt;)</li>
-				<li>Configure any settings in the service's dashboard</li>
-				<li>Test the integration</li>
-			</ol>
-
-			<div class="warning">
-				<strong>⚠️ Important:</strong> When adding third-party scripts, make sure they don't conflict with
-				existing JavaScript. Test thoroughly before deploying.
-			</div>
-
-			<h3>SEO Optimization</h3>
-			<p>To improve search engine visibility, edit the meta tags in the &lt;head&gt; of index.html:</p>
-
-			<div class="code-block">
-				<code>
-					&lt;meta name="description" content="Your page description" /&gt;<br />
-					&lt;meta name="keywords" content="keyword1, keyword2, keyword3" /&gt;<br />
-					&lt;meta property="og:title" content="Page Title" /&gt;<br />
-					&lt;meta property="og:description" content="Page description" /&gt;
-				</code>
-			</div>
-		</section>
-
-		<!-- FAQ -->
-		<section id="faq">
-			<h2>❓ Frequently Asked Questions</h2>
-
-			<h3>Q: How do I add a new section?</h3>
-			<p><strong>A:</strong> Copy an existing section block in index.html, paste it where you want it, and customize
-				the content and styling. Don't forget to create corresponding CSS classes in styles.css.</p>
-
-			<h3>Q: Can I use my own fonts?</h3>
-			<p><strong>A:</strong> Yes! Go to Google Fonts, select a font, and follow their instructions to import it into
-				styles.css. Then update the font-family in your CSS.</p>
-
-			<h3>Q: How do I change the responsive breakpoints?</h3>
-			<p><strong>A:</strong> Search for <code>@media (max-width:</code> in styles.css. Change the pixel values (e.g.,
-				768px to 800px) to adjust breakpoints.</p>
-
-			<h3>Q: What's the best way to test my changes?</h3>
-			<p><strong>A:</strong> Use your browser's DevTools (F12) and toggle responsive design mode. Test at different
-				breakpoints (480px, 768px, 1024px, desktop) to ensure everything looks good.</p>
-
-			<h3>Q: How do I add social media links?</h3>
-			<p><strong>A:</strong> Find the social links section in index.html (usually in the footer) and update the href
-				attributes to point to your social media profiles.</p>
-
-			<h3>Q: Can I remove sections I don't need?</h3>
-			<p><strong>A:</strong> Yes! Simply delete the entire &lt;section&gt;...&lt;/section&gt; block from index.html.
-				You can also remove its CSS styling from styles.css if desired.</p>
-
-			<h3>Q: How do I deploy this to a website?</h3>
-			<p><strong>A:</strong> Upload all files to your web hosting service using FTP, or use your hosting's file
-				manager. Most hosting providers have built-in documentation for deploying HTML files.</p>
-
-			<h3>Q: Is this mobile-friendly?</h3>
-			<p><strong>A:</strong> Yes! The template is fully responsive and works great on all devices. Test it using your
-				browser's responsive design mode.</p>
-
-			<h3>Q: How do I modify the footer?</h3>
-			<p><strong>A:</strong> The footer is typically at the bottom of index.html inside a &lt;footer&gt; tag. Edit
-				the content directly, and adjust its styling in styles.css using the footer class.</p>
-
-			<h3>Q: Can I add a newsletter signup?</h3>
-			<p><strong>A:</strong> The template already has a newsletter form. To make it functional, integrate it with an
-				email service provider like Mailchimp or Brevo (formerly Sendinblue).</p>
-		</section>
-
-		<!-- Footer -->
-		<footer>
-			<p>🎨 <strong>SmartCare Home Customization Guide</strong></p>
-			<p>Start customizing today and make it your own! 🚀</p>
-			<p style="margin-top: 15px; opacity: 0.8; font-size: 0.9rem;">Last Updated: November 2025</p>
-		</footer>
-	</div>
-</body>
+	</body>
 </html>
