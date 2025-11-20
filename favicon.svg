@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Background -->
+  <rect width="256" height="256" fill="#0066cc"/>
+  
+  <!-- Heart Pulse Icon -->
+  <g transform="translate(128, 128)">
+    <!-- Heart shape -->
+    <path d="M 0,-20 C -15,-35 -40,-35 -40,-15 C -40,0 -20,20 0,35 C 20,20 40,0 40,-15 C 40,-35 15,-35 0,-20 Z" fill="#00a8e8" stroke="none"/>
+    
+    <!-- Pulse lines -->
+    <line x1="-50" y1="0" x2="-40" y2="0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <polyline points="-35,0 -32,-8 -28,8 -24,-4 -20,4 -16,0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+    <polyline points="15,0 18,-8 22,8 26,-4 30,4 34,0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="40" y1="0" x2="50" y2="0" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
