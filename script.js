@@ -38,49 +38,49 @@ function scrollToTop() {
 }
 
 /**
- * Initialize logo click handler
- */
-document.addEventListener(
-	"DOMContentLoaded",
-	function () {
-		const logo = document.querySelector(
-			".nav-brand .logo"
-		);
-		if (logo) {
-			logo.style.cursor = "pointer";
-			logo.addEventListener("click", scrollToTop);
-		}
-	}
-);
-
-/**
  * Mobile Menu Management
  */
 function toggleMobileMenu() {
-	const mobileMenuBtn = document.getElementById(
+	const hamburger = document.getElementById(
 		"mobileMenuBtn"
 	);
-	const navMobileMenu = document.getElementById(
-		"navMobileMenu"
-	);
+	const navMenu =
+		document.getElementById("navMenu");
+	const navOverlay =
+		document.getElementById("navOverlay");
 
-	if (mobileMenuBtn && navMobileMenu) {
-		mobileMenuBtn.classList.toggle("active");
-		navMobileMenu.classList.toggle("active");
+	if (hamburger && navMenu) {
+		hamburger.classList.toggle("active");
+		navMenu.classList.toggle("active");
+		if (navOverlay)
+			navOverlay.classList.toggle("active");
+
+		document.body.classList.toggle("no-scroll");
+		document.documentElement.classList.toggle(
+			"no-scroll"
+		);
 	}
 }
 
 function closeMobileMenu() {
-	const mobileMenuBtn = document.getElementById(
+	const hamburger = document.getElementById(
 		"mobileMenuBtn"
 	);
-	const navMobileMenu = document.getElementById(
-		"navMobileMenu"
-	);
+	const navMenu =
+		document.getElementById("navMenu");
+	const navOverlay =
+		document.getElementById("navOverlay");
 
-	if (mobileMenuBtn && navMobileMenu) {
-		mobileMenuBtn.classList.remove("active");
-		navMobileMenu.classList.remove("active");
+	if (hamburger && navMenu) {
+		hamburger.classList.remove("active");
+		navMenu.classList.remove("active");
+		if (navOverlay)
+			navOverlay.classList.remove("active");
+
+		document.body.classList.remove("no-scroll");
+		document.documentElement.classList.remove(
+			"no-scroll"
+		);
 	}
 }
 
@@ -88,24 +88,36 @@ function closeMobileMenu() {
  * Initialize mobile menu listeners
  */
 function initMobileMenu() {
-	const mobileMenuBtn = document.getElementById(
+	const hamburger = document.getElementById(
 		"mobileMenuBtn"
 	);
-	const navMobileMenu = document.getElementById(
-		"navMobileMenu"
-	);
+	const navMenu =
+		document.getElementById("navMenu");
+	const navOverlay =
+		document.getElementById("navOverlay");
 
-	if (mobileMenuBtn) {
-		mobileMenuBtn.addEventListener(
+	if (hamburger) {
+		hamburger.removeEventListener(
+			"click",
+			toggleMobileMenu
+		);
+		hamburger.addEventListener(
 			"click",
 			toggleMobileMenu
 		);
 	}
 
+	if (navOverlay) {
+		navOverlay.addEventListener(
+			"click",
+			closeMobileMenu
+		);
+	}
+
 	// Close menu when clicking on nav links
-	if (navMobileMenu) {
+	if (navMenu) {
 		const links =
-			navMobileMenu.querySelectorAll("a");
+			navMenu.querySelectorAll(".nav-link");
 		links.forEach((link) => {
 			link.addEventListener(
 				"click",
@@ -114,15 +126,21 @@ function initMobileMenu() {
 		});
 	}
 
-	// Close menu when clicking outside
+	// Close menu when clicking outside (fallback)
 	document.addEventListener(
 		"click",
 		function (event) {
 			const navbar =
 				document.querySelector(".navbar");
+			const navMenu =
+				document.getElementById("navMenu");
+
+			// If menu is active and click is outside navbar (and not on overlay which is handled above)
 			if (
 				navbar &&
-				!navbar.contains(event.target)
+				!navbar.contains(event.target) &&
+				navMenu &&
+				navMenu.classList.contains("active")
 			) {
 				closeMobileMenu();
 			}
@@ -134,16 +152,28 @@ function initMobileMenu() {
 	window.addEventListener("resize", function () {
 		clearTimeout(resizeTimeout);
 		resizeTimeout = setTimeout(function () {
-			if (window.innerWidth > 768) {
+			if (window.innerWidth > 1100) {
 				closeMobileMenu();
 			}
 		}, 100);
 	});
+}
 
-	// Also check on initial load to ensure menu is closed on desktop
-	if (window.innerWidth > 768) {
-		closeMobileMenu();
-	}
+/**
+ * Navbar Scroll Effect
+ */
+function initNavbarScroll() {
+	const navbar =
+		document.getElementById("navbar");
+	if (!navbar) return;
+
+	window.addEventListener("scroll", function () {
+		if (window.scrollY > 50) {
+			navbar.classList.add("scrolled");
+		} else {
+			navbar.classList.remove("scrolled");
+		}
+	});
 }
 
 // ============================================
@@ -168,58 +198,43 @@ function closeModal(modalType) {
 	}
 }
 
-// Close modal when clicking outside content
-document.addEventListener(
-	"DOMContentLoaded",
-	function () {
-		const modals =
-			document.querySelectorAll(".modal");
+function initModals() {
+	const modals =
+		document.querySelectorAll(".modal");
 
-		modals.forEach((modal) => {
-			modal.addEventListener(
-				"click",
-				function (event) {
-					if (event.target === this) {
-						const modalType = this.id.replace(
+	modals.forEach((modal) => {
+		modal.addEventListener(
+			"click",
+			function (event) {
+				if (event.target === this) {
+					const modalType = this.id.replace(
+						"Modal",
+						""
+					);
+					closeModal(modalType);
+				}
+			}
+		);
+	});
+
+	// Close modal with Escape key
+	document.addEventListener(
+		"keydown",
+		function (event) {
+			if (event.key === "Escape") {
+				modals.forEach((modal) => {
+					if (modal.classList.contains("show")) {
+						const modalType = modal.id.replace(
 							"Modal",
 							""
 						);
 						closeModal(modalType);
 					}
-				}
-			);
-		});
-
-		// Close modal with Escape key
-		document.addEventListener(
-			"keydown",
-			function (event) {
-				if (event.key === "Escape") {
-					modals.forEach((modal) => {
-						if (
-							modal.classList.contains("show")
-						) {
-							const modalType = modal.id.replace(
-								"Modal",
-								""
-							);
-							closeModal(modalType);
-						}
-					});
-				}
+				});
 			}
-		);
-
-		// Mobile menu toggle
-		setupMobileMenu();
-
-		// Smooth scrolling for nav links
-		setupSmoothScroll();
-
-		// Animate elements on scroll
-		setupScrollAnimations();
-	}
-);
+		}
+	);
+}
 
 // ============================================
 // Form Handling
@@ -243,12 +258,6 @@ function handleFormSubmit(event, formType) {
 
 	// Close modal
 	closeModal(formType);
-
-	// In production, you would send this data to a server
-	console.log(
-		`${formType} Form Data:`,
-		Object.fromEntries(formData)
-	);
 }
 
 function handleNewsletter(event) {
@@ -265,9 +274,6 @@ function handleNewsletter(event) {
 	);
 
 	form.reset();
-
-	// In production, you would send this to a server
-	console.log("Newsletter subscription:", email);
 }
 
 // ============================================
@@ -309,25 +315,12 @@ function showNotification(
 	const style = document.createElement("style");
 	style.textContent = `
         @keyframes slideInRight {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
-        
         @keyframes slideOutRight {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(400px);
-                opacity: 0;
-            }
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(400px); opacity: 0; }
         }
     `;
 	if (
@@ -350,55 +343,6 @@ function showNotification(
 			notification.remove();
 		}, 300);
 	}, 4000);
-}
-
-// ============================================
-// Mobile Menu
-// ============================================
-
-function setupMobileMenu() {
-	const mobileMenuBtn = document.querySelector(
-		".mobile-menu-btn"
-	);
-	const navMobileMenu = document.querySelector(
-		".nav-mobile-menu"
-	);
-
-	if (!mobileMenuBtn || !navMobileMenu) return;
-
-	// Toggle menu on button click
-	mobileMenuBtn.addEventListener(
-		"click",
-		function (e) {
-			e.stopPropagation();
-			toggleMobileMenu();
-		}
-	);
-
-	// Close menu when clicking on nav links
-	const navLinks = navMobileMenu.querySelectorAll(
-		".nav-link-mobile, .nav-cta-mobile"
-	);
-	navLinks.forEach((link) => {
-		link.addEventListener("click", function () {
-			closeMobileMenu();
-		});
-	});
-
-	// Close menu when clicking outside navbar
-	document.addEventListener(
-		"click",
-		function (event) {
-			const navbar =
-				document.querySelector(".navbar");
-			if (
-				navbar &&
-				!navbar.contains(event.target)
-			) {
-				closeMobileMenu();
-			}
-		}
-	);
 }
 
 // ============================================
@@ -437,7 +381,7 @@ function setupScrollAnimations() {
 	// Use Intersection Observer for better performance
 	const observerOptions = {
 		threshold: 0.1,
-		rootMargin: "0px 0px -100px 0px",
+		rootMargin: "0px 0px -50px 0px",
 	};
 
 	const observer = new IntersectionObserver(
@@ -457,84 +401,17 @@ function setupScrollAnimations() {
 	// Observe all cards, sections, and main content areas
 	const elementsToObserve =
 		document.querySelectorAll(
-			".step-card, .benefit-card, .benefit-item, .testimonial-card, .tip-card, .scenario-card, .option, .how-it-works-step, .education-tip, section"
+			".process-step, .use-case-card, .step-card, .benefit-card, .benefit-item, .testimonial-card, .tip-card, .scenario-card, .cta-card, .how-it-works-step, .education-tip, .section-header, .hero-content > *, .hero-image-container, .benefit-row, .resource-card, .resource-cta, .trust-badges, .footer-cta"
 		);
 
 	elementsToObserve.forEach((el) => {
 		observer.observe(el);
 	});
-
-	// Add animation styles
-	const animationStyle =
-		document.createElement("style");
-	animationStyle.textContent = `
-        .step-card, 
-        .benefit-card,
-        .benefit-item, 
-        .testimonial-card, 
-        .tip-card, 
-        .scenario-card,
-        .option,
-        .how-it-works-step,
-        .education-tip,
-        section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .step-card.animate-in,
-        .benefit-card.animate-in,
-        .benefit-item.animate-in,
-        .testimonial-card.animate-in,
-        .tip-card.animate-in,
-        .scenario-card.animate-in,
-        .option.animate-in,
-        .how-it-works-step.animate-in,
-        .education-tip.animate-in,
-        section.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    `;
-	document.head.appendChild(animationStyle);
 }
 
 // ============================================
 // Utility Functions
 // ============================================
-
-/**
- * Format a date in a user-friendly way
- */
-function formatDate(date) {
-	const options = {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	};
-	return new Date(date).toLocaleDateString(
-		"en-US",
-		options
-	);
-}
-
-/**
- * Check if an element is in viewport
- */
-function isInViewport(element) {
-	const rect = element.getBoundingClientRect();
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <=
-			(window.innerHeight ||
-				document.documentElement.clientHeight) &&
-		rect.right <=
-			(window.innerWidth ||
-				document.documentElement.clientWidth)
-	);
-}
 
 /**
  * Debounce function for performance
@@ -555,101 +432,85 @@ function debounce(func, wait) {
 // Analytics & Event Tracking
 // ============================================
 
-// Track CTA clicks
-document.addEventListener(
-	"click",
-	function (event) {
-		if (
-			event.target.closest(
-				".btn-primary, .btn-secondary"
-			)
-		) {
-			const buttonText = event.target.textContent;
-			console.log("CTA Clicked:", buttonText);
-			// In production, send to analytics service
-		}
-	}
-);
-
-// Track scroll depth
-let maxScrollPercentage = 0;
-window.addEventListener(
-	"scroll",
-	debounce(function () {
-		const scrollTop = window.scrollY;
-		const docHeight =
-			document.documentElement.scrollHeight -
-			window.innerHeight;
-		const scrollPercent = Math.round(
-			(scrollTop / docHeight) * 100
-		);
-
-		if (scrollPercent > maxScrollPercentage) {
-			maxScrollPercentage = scrollPercent;
-			if (maxScrollPercentage % 25 === 0) {
-				console.log(
-					"Scroll Depth:",
-					maxScrollPercentage + "%"
-				);
-				// In production, send to analytics service
+function initAnalytics() {
+	// Track CTA clicks
+	document.addEventListener(
+		"click",
+		function (event) {
+			if (
+				event.target.closest(
+					".btn-primary, .btn-secondary"
+				)
+			) {
+				const buttonText =
+					event.target.textContent;
 			}
 		}
-	}, 250)
-);
+	);
+
+	// Track scroll depth
+	let maxScrollPercentage = 0;
+	window.addEventListener(
+		"scroll",
+		debounce(function () {
+			const scrollTop = window.scrollY;
+			const docHeight =
+				document.documentElement.scrollHeight -
+				window.innerHeight;
+			const scrollPercent = Math.round(
+				(scrollTop / docHeight) * 100
+			);
+
+			if (scrollPercent > maxScrollPercentage) {
+				maxScrollPercentage = scrollPercent;
+			}
+		}, 250)
+	);
+}
 
 // ============================================
 // Performance Optimizations
 // ============================================
 
-// Lazy load images if needed
-if ("IntersectionObserver" in window) {
-	const imageObserver = new IntersectionObserver(
-		(entries, observer) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const img = entry.target;
-					if (img.dataset.src) {
-						img.src = img.dataset.src;
-						img.removeAttribute("data-src");
-					}
-					observer.unobserve(img);
+function initLazyLoading() {
+	if ("IntersectionObserver" in window) {
+		const imageObserver =
+			new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const img = entry.target;
+							if (img.dataset.src) {
+								img.src = img.dataset.src;
+								img.removeAttribute("data-src");
+							}
+							observer.unobserve(img);
+						}
+					});
 				}
+			);
+
+		document
+			.querySelectorAll("img[data-src]")
+			.forEach((img) => {
+				imageObserver.observe(img);
 			});
-		}
-	);
-
-	document
-		.querySelectorAll("img[data-src]")
-		.forEach((img) => {
-			imageObserver.observe(img);
-		});
+	}
 }
 
 // ============================================
-// Dark Mode Support (Optional)
+// Main Initialization
 // ============================================
 
-function initDarkMode() {
-	const prefersDark = window.matchMedia(
-		"(prefers-color-scheme: dark)"
-	);
-
-	prefersDark.addEventListener("change", (e) => {
-		if (e.matches) {
-			document.documentElement.style.colorScheme =
-				"dark";
-			// Apply dark mode styles
-		} else {
-			document.documentElement.style.colorScheme =
-				"light";
-			// Apply light mode styles
-		}
-	});
-}
-
-// Uncomment to enable dark mode support
-// initDarkMode();
-
-console.log(
-	"SmartCare Home Landing Page - Scripts Loaded Successfully"
+document.addEventListener(
+	"DOMContentLoaded",
+	function () {
+		initMobileMenu();
+		initNavbarScroll();
+		initModals();
+		setupSmoothScroll();
+		setupScrollAnimations();
+		initAnalytics();
+		initLazyLoading();
+	}
 );

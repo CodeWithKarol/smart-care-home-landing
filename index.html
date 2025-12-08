@@ -21,226 +21,247 @@
 		/>
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 		/>
 	</head>
 	<body>
 		<!-- Navigation -->
-		<nav class="navbar">
-			<div class="container">
-				<div class="nav-wrapper">
-					<!-- Logo -->
-					<div class="nav-brand">
-						<div class="logo">
-							<i class="fas fa-heart-pulse"></i>
-							<span class="logo-text"
-								>SmartCare</span
-							>
-						</div>
-						<p class="logo-subtitle">
-							Home Monitoring
-						</p>
-					</div>
+		<nav
+			class="navbar"
+			id="navbar"
+		>
+			<div class="container nav-container">
+				<a
+					href="#"
+					class="nav-logo"
+					onclick="scrollToTop(); return false;"
+				>
+					<i class="fas fa-heart-pulse"></i>
+					<span>SmartCare</span>
+				</a>
 
-					<!-- Menu -->
-					<div class="nav-menu">
-						<a
-							href="#how-it-works"
-							class="nav-link"
-							>How It Works</a
-						>
-						<a
-							href="#benefits"
-							class="nav-link"
-							>Benefits</a
-						>
-						<a
-							href="#testimonials"
-							class="nav-link"
-							>Testimonials</a
-						>
-						<a
-							href="#get-started"
-							class="nav-link"
-							>Get Started</a
-						>
-						<div class="nav-divider"></div>
+				<div
+					class="nav-overlay"
+					id="navOverlay"
+				></div>
+				<div
+					class="nav-menu"
+					id="navMenu"
+				>
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a
+								href="#how-it-works"
+								class="nav-link"
+								>How It Works</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								href="#benefits"
+								class="nav-link"
+								>Benefits</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								href="#testimonials"
+								class="nav-link"
+								>Testimonials</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								href="#education"
+								class="nav-link"
+								>Safety Tips</a
+							>
+						</li>
+						<li class="nav-item">
+							<a
+								href="#get-started"
+								class="nav-link"
+								>Get Started</a
+							>
+						</li>
+					</ul>
+					<div class="nav-cta-container">
 						<button
-							class="nav-cta btn btn-primary"
+							class="btn btn-primary nav-cta-btn"
 							onclick="scrollToSection('get-started')"
 						>
 							Schedule Demo
 						</button>
 					</div>
 
-					<!-- Mobile Menu Button -->
-					<button
-						class="mobile-menu-btn"
-						id="mobileMenuBtn"
-					>
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-				</div>
-			</div>
+					<!-- Mobile Menu Image -->
+					<div class="mobile-menu-image">
+						<img
+							src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=800&q=80"
+							alt="Caring staff member"
+							loading="lazy"
+						/>
+					</div>
 
-			<!-- Mobile Menu Overlay -->
-			<div
-				class="nav-mobile-menu"
-				id="navMobileMenu"
-			>
-				<a
-					href="#how-it-works"
-					class="nav-link-mobile"
-					>How It Works</a
+					<!-- Mobile Menu Footer -->
+					<div class="mobile-nav-footer">
+						<div class="mobile-contact">
+							<p>
+								Questions? We're here to help.
+							</p>
+							<a
+								href="tel:+15551234567"
+								class="mobile-phone"
+								><i class="fas fa-phone-alt"></i>
+								+1 (555) 123-4567</a
+							>
+						</div>
+						<div class="mobile-socials">
+							<a
+								href="#"
+								aria-label="X"
+								><i
+									class="fa-brands fa-x-twitter"
+								></i
+							></a>
+							<a
+								href="#"
+								aria-label="Facebook"
+								><i class="fab fa-facebook-f"></i
+							></a>
+							<a
+								href="#"
+								aria-label="Instagram"
+								><i class="fab fa-instagram"></i
+							></a>
+							<a
+								href="#"
+								aria-label="LinkedIn"
+								><i class="fab fa-linkedin-in"></i
+							></a>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="hamburger"
+					id="mobileMenuBtn"
 				>
-				<a
-					href="#benefits"
-					class="nav-link-mobile"
-					>Benefits</a
-				>
-				<a
-					href="#testimonials"
-					class="nav-link-mobile"
-					>Testimonials</a
-				>
-				<a
-					href="#get-started"
-					class="nav-link-mobile"
-					>Get Started</a
-				>
-				<button
-					class="nav-cta-mobile btn btn-primary"
-					onclick="scrollToSection('get-started')"
-				>
-					Schedule Demo
-				</button>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
 			</div>
 		</nav>
 
 		<!-- Hero Section -->
 		<section class="hero">
-			<!-- Animated background elements -->
-			<div class="hero-bg-grid"></div>
-			<div class="hero-glow hero-glow-1"></div>
-			<div class="hero-glow hero-glow-2"></div>
-			<div class="hero-glow hero-glow-3"></div>
-
+			<div class="hero-bg-shape"></div>
 			<div class="container">
-				<div class="hero-content">
-					<!-- Left side: Text content -->
-					<div class="hero-text">
+				<div class="hero-wrapper">
+					<!-- Text Content -->
+					<div class="hero-content">
 						<div class="hero-badge">
-							<i class="fas fa-check-circle"></i>
-							Trusted by 5,000+ families
+							<span class="badge-icon"
+								><i class="fas fa-shield-alt"></i
+							></span>
+							<span
+								>#1 Rated Care Monitoring
+								Solution</span
+							>
 						</div>
-						<h1 class="hero-headline">
-							Premium Care Monitoring for
-							Independent Living
+						<h1 class="hero-title">
+							Peace of Mind for You, <br />
+							<span class="text-gradient"
+								>Independence</span
+							>
+							for Them.
 						</h1>
-						<p class="hero-subheadline">
-							Real-time health insights, instant
-							alerts, and peace of mind. Give your
-							loved ones the safety they deserve.
+						<p class="hero-description">
+							Advanced non-intrusive monitoring
+							that respects privacy while keeping
+							your loved ones safe. Get real-time
+							health insights and instant
+							emergency alerts.
 						</p>
-						<div class="hero-ctas">
+
+						<div class="hero-actions">
 							<button
 								class="btn btn-primary btn-lg"
 								onclick="openModal('demo')"
 							>
-								<i class="fas fa-play-circle"></i>
-								Start Your Free Trial
+								Get Started Free
+								<i class="fas fa-arrow-right"></i>
 							</button>
 							<button
-								class="btn btn-ghost btn-lg"
+								class="btn btn-outline btn-lg"
+								style="
+									color: var(--dark-text);
+									border-color: var(--dark-text);
+								"
+								onclick="scrollToSection('how-it-works')"
 							>
-								<i class="fas fa-arrow-right"></i>
-								Learn More
+								<i class="fas fa-play"></i>
+								See How It Works
 							</button>
 						</div>
-						<div class="hero-stats">
-							<div class="stat">
-								<span class="stat-number"
-									>98%</span
-								>
-								<span class="stat-label"
-									>User Satisfaction</span
-								>
+
+						<div class="hero-trust">
+							<div class="trust-avatars">
+								<img
+									src="https://randomuser.me/api/portraits/women/44.jpg"
+									alt="User"
+								/>
+								<img
+									src="https://randomuser.me/api/portraits/men/32.jpg"
+									alt="User"
+								/>
+								<img
+									src="https://randomuser.me/api/portraits/women/68.jpg"
+									alt="User"
+								/>
+								<div class="trust-count">5k+</div>
 							</div>
-							<div class="stat">
-								<span class="stat-number"
-									>24/7</span
-								>
-								<span class="stat-label"
-									>Monitoring & Alerts</span
-								>
-							</div>
-							<div class="stat">
-								<span class="stat-number"
-									>&lt;2s</span
-								>
-								<span class="stat-label"
-									>Alert Response</span
-								>
+							<div class="trust-text">
+								<div class="stars">
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+									<i class="fas fa-star"></i>
+								</div>
+								<p>Trusted by 5,000+ families</p>
 							</div>
 						</div>
 					</div>
 
-					<!-- Right side: Visual element -->
-					<div class="hero-visual">
-						<div class="hero-card">
-							<div class="card-header">
-								<div class="card-dot red"></div>
-								<div
-									class="card-dot yellow"
-								></div>
-								<div class="card-dot green"></div>
+					<!-- Visual Content -->
+					<div class="hero-image-container">
+						<div class="hero-main-image">
+							<img
+								src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80"
+								alt="Happy senior woman using tablet"
+							/>
+						</div>
+
+						<!-- Floating Cards -->
+						<div class="floating-card card-heart">
+							<div class="card-icon heart-icon">
+								<i class="fas fa-heartbeat"></i>
 							</div>
-							<div class="card-content">
-								<div class="dashboard-item">
-									<i class="fas fa-heart"></i>
-									<div class="dashboard-info">
-										<span>Heart Rate</span>
-										<strong>72 BPM</strong>
-									</div>
-									<span class="status healthy"
-										>Normal</span
-									>
-								</div>
-								<div class="dashboard-item">
-									<i class="fas fa-lungs"></i>
-									<div class="dashboard-info">
-										<span>Oxygen Level</span>
-										<strong>98%</strong>
-									</div>
-									<span class="status healthy"
-										>Healthy</span
-									>
-								</div>
-								<div class="dashboard-item">
-									<i
-										class="fas fa-thermometer"
-									></i>
-									<div class="dashboard-info">
-										<span>Temperature</span>
-										<strong>98.6°F</strong>
-									</div>
-									<span class="status healthy"
-										>Normal</span
-									>
-								</div>
-								<div class="dashboard-item">
-									<i class="fas fa-dumbbell"></i>
-									<div class="dashboard-info">
-										<span>Activity</span>
-										<strong>6,234 steps</strong>
-									</div>
-									<span class="status healthy"
-										>Active</span
-									>
-								</div>
+							<div class="card-info">
+								<span class="label"
+									>Heart Rate</span
+								>
+								<span class="value">72 BPM</span>
 							</div>
+						</div>
+
+						<div
+							class="floating-card card-status"
+						>
+							<div class="status-indicator"></div>
+							<span>System Active</span>
 						</div>
 					</div>
 				</div>
@@ -255,298 +276,181 @@
 			id="how-it-works"
 			class="how-it-works"
 		>
-			<div class="how-it-works-bg-grid"></div>
-
 			<div class="container">
-				<div class="how-it-works-header">
+				<div class="section-header text-center">
 					<div class="section-badge">
-						<i
-							class="fas fa-wand-magic-sparkles"
-						></i>
-						Four Simple Steps
+						<i class="fas fa-magic"></i>
+						<span>Simple Setup</span>
 					</div>
-					<h2>How SmartCare Works</h2>
+					<h2 class="section-title">
+						Protection in 4 Easy Steps
+					</h2>
 					<p class="section-intro">
-						Get peace of mind in minutes, not
-						hours
+						Get up and running in minutes. No
+						complex wiring or technical expertise
+						required.
 					</p>
 				</div>
 
-				<div class="steps-container">
-					<div class="steps-progress">
-						<div class="progress-line"></div>
+				<div class="process-steps">
+					<!-- Step 1 -->
+					<div class="process-step">
+						<div class="step-icon-wrapper">
+							<div class="step-icon">
+								<i class="fas fa-box-open"></i>
+							</div>
+							<div class="step-line"></div>
+						</div>
+						<div class="step-content">
+							<span class="step-number">01</span>
+							<h3>Unbox & Plug In</h3>
+							<p>
+								Receive your pre-configured kit
+								and simply plug the hub into a
+								power outlet.
+							</p>
+						</div>
 					</div>
 
-					<div class="steps-grid">
-						<div
-							class="step-card"
-							data-step="1"
-						>
-							<div class="step-number">
-								<span>1</span>
-								<div class="step-checkmark">
-									<i class="fas fa-check"></i>
-								</div>
+					<!-- Step 2 -->
+					<div class="process-step">
+						<div class="step-icon-wrapper">
+							<div class="step-icon">
+								<i class="fas fa-wifi"></i>
 							</div>
-							<h3>Setup Device</h3>
+							<div class="step-line"></div>
+						</div>
+						<div class="step-content">
+							<span class="step-number">02</span>
+							<h3>Connect to WiFi</h3>
 							<p>
-								Install SmartCare monitoring
-								device at home. No complex
-								configuration required.
+								Use our mobile app to quickly
+								connect the system to your home
+								WiFi network.
 							</p>
-							<div class="step-features">
-								<div class="feature-tag">
-									<i class="fas fa-plug"></i>
-									Plug & Play
-								</div>
-								<div class="feature-tag">
-									<i class="fas fa-wifi"></i>
-									WiFi Ready
-								</div>
+						</div>
+					</div>
+
+					<!-- Step 3 -->
+					<div class="process-step">
+						<div class="step-icon-wrapper">
+							<div class="step-icon">
+								<i class="fas fa-user-plus"></i>
+							</div>
+							<div class="step-line"></div>
+						</div>
+						<div class="step-content">
+							<span class="step-number">03</span>
+							<h3>Invite Family</h3>
+							<p>
+								Add family members and caregivers
+								to the circle so everyone stays
+								informed.
+							</p>
+						</div>
+					</div>
+
+					<!-- Step 4 -->
+					<div class="process-step">
+						<div class="step-icon-wrapper">
+							<div class="step-icon">
+								<i
+									class="fas fa-check-circle"
+								></i>
 							</div>
 						</div>
-
-						<div
-							class="step-card"
-							data-step="2"
-						>
-							<div class="step-number">
-								<span>2</span>
-								<div class="step-checkmark">
-									<i class="fas fa-check"></i>
-								</div>
-							</div>
-							<h3>Add Caregivers</h3>
+						<div class="step-content">
+							<span class="step-number">04</span>
+							<h3>You're Protected</h3>
 							<p>
-								Invite family members and
-								caregivers with simple access
-								controls.
+								The system immediately begins
+								learning routines and monitoring
+								for safety.
 							</p>
-							<div class="step-features">
-								<div class="feature-tag">
-									<i class="fas fa-users"></i>
-									Easy Invite
-								</div>
-								<div class="feature-tag">
-									<i class="fas fa-lock"></i>
-									Control Access
-								</div>
-							</div>
-						</div>
-
-						<div
-							class="step-card"
-							data-step="3"
-						>
-							<div class="step-number">
-								<span>3</span>
-								<div class="step-checkmark">
-									<i class="fas fa-check"></i>
-								</div>
-							</div>
-							<h3>Monitor in Real-Time</h3>
-							<p>
-								Access health insights and
-								activity patterns from anywhere,
-								anytime.
-							</p>
-							<div class="step-features">
-								<div class="feature-tag">
-									<i
-										class="fas fa-chart-line"
-									></i>
-									Live Dashboard
-								</div>
-								<div class="feature-tag">
-									<i class="fas fa-mobile"></i>
-									Mobile App
-								</div>
-							</div>
-						</div>
-
-						<div
-							class="step-card"
-							data-step="4"
-						>
-							<div class="step-number">
-								<span>4</span>
-								<div class="step-checkmark">
-									<i class="fas fa-check"></i>
-								</div>
-							</div>
-							<h3>Receive Alerts</h3>
-							<p>
-								Get instant notifications for
-								important health events or changes
-								in routine.
-							</p>
-							<div class="step-features">
-								<div class="feature-tag">
-									<i class="fas fa-bell"></i>
-									Smart Alerts
-								</div>
-								<div class="feature-tag">
-									<i class="fas fa-zap"></i>
-									Instant Notify
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="scenarios-section">
-					<div class="scenarios-header">
-						<div class="scenarios-badge">
-							<i class="fas fa-circle-nodes"></i>
-							Real-World Use Cases
-						</div>
-						<h3>Scenarios That Matter</h3>
-						<p class="scenarios-subtitle">
-							See how SmartCare makes a difference
-						</p>
+				<!-- Scenarios / Use Cases -->
+				<div class="use-cases">
+					<div
+						class="section-header text-center"
+						style="margin-bottom: 3rem"
+					>
+						<h3
+							class="section-title"
+							style="font-size: 2rem"
+						>
+							Real-Life Scenarios
+						</h3>
 					</div>
 
-					<div class="scenarios-grid">
-						<div class="scenario-card premium">
-							<div class="scenario-number">
-								01
-							</div>
-							<div class="scenario-header-card">
-								<div class="scenario-icon">
+					<div class="use-cases-grid">
+						<!-- Case 1 -->
+						<div class="use-case-card">
+							<div
+								class="card-bg"
+								style="
+									background-image: url('https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?auto=format&fit=crop&w=800&q=80');
+								"
+							></div>
+							<div class="card-overlay">
+								<div class="card-icon">
 									<i class="fas fa-sun"></i>
 								</div>
-								<h4>Morning Check-In</h4>
-							</div>
-							<p class="scenario-description">
-								Monitor morning routine completion
-								to ensure your loved one's day
-								starts safely and on schedule.
-							</p>
-							<div class="scenario-benefits">
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Routine Tracking</span>
-								</div>
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Safety Verified</span>
-								</div>
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Daily Alerts</span>
-								</div>
-							</div>
-							<div class="scenario-metric">
-								<span class="metric-value"
-									>8:30 AM</span
-								>
-								<span class="metric-label"
-									>Avg. Check Time</span
-								>
+								<h4>Morning Routine</h4>
+								<p>
+									Know exactly when Mom wakes up
+									and starts her day, ensuring
+									she's active and safe every
+									morning.
+								</p>
 							</div>
 						</div>
 
-						<div
-							class="scenario-card premium featured"
-						>
-							<div class="featured-badge">
-								<i class="fas fa-star"></i>
-								Most Used
-							</div>
-							<div class="scenario-number">
-								02
-							</div>
-							<div class="scenario-header-card">
-								<div
-									class="scenario-icon featured-icon"
-								>
+						<!-- Case 2 -->
+						<div class="use-case-card">
+							<div
+								class="card-bg"
+								style="
+									background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80');
+								"
+							></div>
+							<div class="card-overlay">
+								<div class="card-icon">
 									<i class="fas fa-heartbeat"></i>
 								</div>
-								<h4>Health Tracking</h4>
-							</div>
-							<p class="scenario-description">
-								Real-time updates on vital signs
-								and medication adherence patterns
-								with instant notifications.
-							</p>
-							<div class="scenario-benefits">
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Vital Monitoring</span>
-								</div>
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Meds Reminder</span>
-								</div>
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Health Trends</span>
-								</div>
-							</div>
-							<div class="scenario-metric">
-								<span class="metric-value"
-									>24/7</span
-								>
-								<span class="metric-label"
-									>Continuous Monitoring</span
-								>
+								<h4>Health Anomalies</h4>
+								<p>
+									Detect subtle changes in gait,
+									sleep, or activity levels that
+									could indicate emerging health
+									issues.
+								</p>
 							</div>
 						</div>
 
-						<div class="scenario-card premium">
-							<div class="scenario-number">
-								03
-							</div>
-							<div class="scenario-header-card">
-								<div class="scenario-icon">
-									<i class="fas fa-phone"></i>
+						<!-- Case 3 -->
+						<div class="use-case-card">
+							<div
+								class="card-bg"
+								style="
+									background-image: url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=800&q=80');
+								"
+							></div>
+							<div class="card-overlay">
+								<div class="card-icon">
+									<i
+										class="fas fa-exclamation-triangle"
+									></i>
 								</div>
 								<h4>Emergency Response</h4>
-							</div>
-							<p class="scenario-description">
-								One-click emergency alerts to
-								notify family and emergency
-								services instantly when needed.
-							</p>
-							<div class="scenario-benefits">
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Instant Alert</span>
-								</div>
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Location Shared</span>
-								</div>
-								<div class="benefit-item">
-									<i
-										class="fas fa-check-circle"
-									></i>
-									<span>Emergency Ready</span>
-								</div>
-							</div>
-							<div class="scenario-metric">
-								<span class="metric-value"
-									>&lt;30s</span
-								>
-								<span class="metric-label"
-									>Emergency Alert</span
-								>
+								<p>
+									Instant alerts for falls or
+									missed routines allow for
+									immediate intervention when it
+									matters most.
+								</p>
 							</div>
 						</div>
 					</div>
@@ -563,247 +467,184 @@
 			class="benefits-section"
 		>
 			<div class="container">
-				<div class="benefits-header">
-					<div class="benefits-badge">
-						<i class="fas fa-sparkles"></i>
-						Premium Features
+				<div class="section-header text-center">
+					<div class="section-badge">
+						<i class="fas fa-star"></i>
+						<span>Why Choose Us</span>
 					</div>
-					<h2>Why Choose SmartCare?</h2>
-					<p class="benefits-subtitle">
-						Comprehensive care solutions designed
-						for modern families
+					<h2 class="section-title">
+						Comprehensive Care, Simplified
+					</h2>
+					<p class="section-intro">
+						Advanced technology that brings peace
+						of mind to your entire family.
 					</p>
 				</div>
 
-				<div class="benefits-grid">
-					<!-- Featured Benefit (Safety First) -->
-					<div
-						class="benefit-card premium featured"
-					>
-						<div class="featured-icon-badge">
-							<i class="fas fa-star"></i>
-							Top Priority
+				<!-- Feature 1 -->
+				<div class="benefit-row">
+					<div class="benefit-image">
+						<div class="image-wrapper">
+							<img
+								src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+								alt="Health Monitoring"
+							/>
 						</div>
-						<div class="benefit-number">01</div>
-						<div class="benefit-icon-container">
-							<div class="benefit-icon">
+						<div
+							class="floating-badge bottom-right"
+						>
+							<i class="fas fa-heartbeat"></i>
+							<span>24/7 Monitoring</span>
+						</div>
+					</div>
+					<div class="benefit-content">
+						<div class="benefit-icon-wrapper">
+							<i class="fas fa-shield-heart"></i>
+						</div>
+						<h3>Proactive Health Insights</h3>
+						<p>
+							Don't wait for an emergency. Our
+							system detects subtle changes in
+							daily patterns—like sleep quality,
+							gait speed, and activity levels—to
+							identify potential health issues
+							early.
+						</p>
+						<ul class="benefit-list">
+							<li>
 								<i
-									class="fas fa-shield-heart"
+									class="fas fa-check-circle"
 								></i>
-							</div>
+								<span
+									>Sleep pattern analysis</span
+								>
+							</li>
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span
+									>Activity trend tracking</span
+								>
+							</li>
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span>Early warning system</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Feature 2 -->
+				<div class="benefit-row reverse">
+					<div class="benefit-image">
+						<div class="image-wrapper">
+							<img
+								src="https://images.unsplash.com/photo-1516733968668-dbdce39c4651?auto=format&fit=crop&w=800&q=80"
+								alt="Family Connection"
+							/>
 						</div>
-						<h3>Safety First</h3>
-						<p class="benefit-description">
-							Advanced AI detects fall risks and
-							anomalies in daily patterns before
-							they become emergencies.
-						</p>
-						<div class="benefit-features">
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								AI Detection
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Real-time Alerts
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Pattern Analysis
-							</div>
-						</div>
-						<div class="benefit-metric">
-							<span class="metric-value"
-								>99.9%</span
-							>
-							<span class="metric-label"
-								>Detection Accuracy</span
-							>
+						<div class="floating-badge top-left">
+							<i class="fas fa-user-shield"></i>
+							<span>Privacy First</span>
 						</div>
 					</div>
-
-					<!-- Benefit 2: Privacy -->
-					<div class="benefit-card premium">
-						<div class="benefit-number">02</div>
-						<div class="benefit-icon-container">
-							<div class="benefit-icon">
-								<i class="fas fa-eye"></i>
-							</div>
+					<div class="benefit-content">
+						<div class="benefit-icon-wrapper">
+							<i class="fas fa-lock"></i>
 						</div>
-						<h3>Privacy Focused</h3>
-						<p class="benefit-description">
-							Non-invasive monitoring respects
-							dignity while providing essential
-							health insights.
+						<h3>Privacy-First Monitoring</h3>
+						<p>
+							We believe in dignity. Our sensors
+							monitor movement and patterns
+							without using invasive cameras or
+							microphones. You get the insights
+							you need without compromising your
+							loved one's privacy.
 						</p>
-						<div class="benefit-features">
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Data Encrypted
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								No Video
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								HIPAA Compliant
-							</div>
+						<ul class="benefit-list">
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span
+									>No cameras or microphones</span
+								>
+							</li>
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span
+									>Encrypted data
+									transmission</span
+								>
+							</li>
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span
+									>Motion-sensor technology</span
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Feature 3 -->
+				<div class="benefit-row">
+					<div class="benefit-image">
+						<div class="image-wrapper">
+							<img
+								src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+								alt="Instant Alerts"
+							/>
 						</div>
-						<div class="benefit-metric">
-							<span class="metric-value"
-								>256-bit</span
-							>
-							<span class="metric-label"
-								>Encryption Standard</span
-							>
+						<div
+							class="floating-badge bottom-left"
+						>
+							<i class="fas fa-bolt"></i>
+							<span>Instant Alerts</span>
 						</div>
 					</div>
-
-					<!-- Benefit 3: Family Connected -->
-					<div class="benefit-card premium">
-						<div class="benefit-number">03</div>
-						<div class="benefit-icon-container">
-							<div class="benefit-icon">
-								<i class="fas fa-users-line"></i>
-							</div>
+					<div class="benefit-content">
+						<div class="benefit-icon-wrapper">
+							<i class="fas fa-bell"></i>
 						</div>
-						<h3>Family Connected</h3>
-						<p class="benefit-description">
-							Keep multiple family members
-							informed with customized alerts and
-							shared dashboards.
+						<h3>Real-Time Emergency Alerts</h3>
+						<p>
+							In critical moments, every second
+							counts. Our system instantly detects
+							falls, missed check-ins, or unusual
+							inactivity and sends immediate
+							notifications to family members and
+							caregivers.
 						</p>
-						<div class="benefit-features">
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Multi-user Access
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Custom Alerts
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Shared Dashboard
-							</div>
-						</div>
-						<div class="benefit-metric">
-							<span class="metric-value"
-								>10+</span
-							>
-							<span class="metric-label"
-								>Family Members</span
-							>
-						</div>
-					</div>
-
-					<!-- Benefit 4: 24/7 Monitoring -->
-					<div class="benefit-card premium">
-						<div class="benefit-number">04</div>
-						<div class="benefit-icon-container">
-							<div class="benefit-icon">
-								<i class="fas fa-clock"></i>
-							</div>
-						</div>
-						<h3>24/7 Monitoring</h3>
-						<p class="benefit-description">
-							Always-on care that works around the
-							clock to protect your loved ones.
-						</p>
-						<div class="benefit-features">
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Continuous Tracking
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Emergency Response
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Round-the-Clock
-							</div>
-						</div>
-						<div class="benefit-metric">
-							<span class="metric-value"
-								>&lt;2 min</span
-							>
-							<span class="metric-label"
-								>Emergency Alert Time</span
-							>
-						</div>
-					</div>
-
-					<!-- Benefit 5: Easy Access -->
-					<div class="benefit-card premium">
-						<div class="benefit-number">05</div>
-						<div class="benefit-icon-container">
-							<div class="benefit-icon">
-								<i class="fas fa-mobile"></i>
-							</div>
-						</div>
-						<h3>Easy Access Anywhere</h3>
-						<p class="benefit-description">
-							Check in from your phone, tablet, or
-							computer from anywhere in the world.
-						</p>
-						<div class="benefit-features">
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Mobile App
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Web Dashboard
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								All Devices
-							</div>
-						</div>
-						<div class="benefit-metric">
-							<span class="metric-value">3</span>
-							<span class="metric-label"
-								>Device Platforms</span
-							>
-						</div>
-					</div>
-
-					<!-- Benefit 6: AI Insights -->
-					<div class="benefit-card premium">
-						<div class="benefit-number">06</div>
-						<div class="benefit-icon-container">
-							<div class="benefit-icon">
-								<i class="fas fa-lightbulb"></i>
-							</div>
-						</div>
-						<h3>AI-Powered Insights</h3>
-						<p class="benefit-description">
-							Cutting-edge technology that learns
-							routines and identifies meaningful
-							changes.
-						</p>
-						<div class="benefit-features">
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Machine Learning
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Pattern Recognition
-							</div>
-							<div class="feature-tag">
-								<i class="fas fa-check"></i>
-								Smart Analytics
-							</div>
-						</div>
-						<div class="benefit-metric">
-							<span class="metric-value">ML</span>
-							<span class="metric-label"
-								>Powered Intelligence</span
-							>
-						</div>
+						<ul class="benefit-list">
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span>Fall detection</span>
+							</li>
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span>Missed routine alerts</span>
+							</li>
+							<li>
+								<i
+									class="fas fa-check-circle"
+								></i>
+								<span
+									>One-touch emergency call</span
+								>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -818,39 +659,33 @@
 			class="testimonials-section"
 		>
 			<div class="container">
-				<div class="testimonials-header">
-					<div class="testimonials-badge">
-						<i class="fas fa-quote"></i>
-						Real Stories
+				<div class="section-header text-center">
+					<div class="section-badge">
+						<i class="fas fa-quote-right"></i>
+						<span>Real Stories</span>
 					</div>
-					<h2>What Families Are Saying</h2>
-					<p class="testimonials-subtitle">
-						Hear from families who've transformed
-						their caregiving experience with
-						SmartCare
+					<h2 class="section-title">
+						Trusted by Families Everywhere
+					</h2>
+					<p class="section-intro">
+						See how SmartCare is making a
+						difference in the lives of seniors and
+						their caregivers.
 					</p>
 				</div>
 
 				<div class="testimonials-grid">
-					<!-- Featured Testimonial (James Miller) -->
-					<div
-						class="testimonial-card premium featured"
-					>
-						<div class="featured-badge">
-							<i class="fas fa-heart"></i>
-							Most Helpful
+					<!-- Testimonial 1 -->
+					<div class="testimonial-card">
+						<div class="quote-icon">
+							<i class="fas fa-quote-right"></i>
 						</div>
-						<div class="rating-stars">
-							<div class="stars-container">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-							<span class="rating-value"
-								>5.0</span
-							>
+						<div class="rating">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
 						</div>
 						<p class="testimonial-text">
 							"SmartCare gave us the confidence to
@@ -859,36 +694,30 @@
 							incredible. We sleep better knowing
 							she's being looked after."
 						</p>
-						<div class="testimonial-footer">
-							<div
-								class="author-avatar featured-avatar"
-							>
-								<span>JM</span>
-							</div>
+						<div class="testimonial-author">
+							<img
+								src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80"
+								alt="James Miller"
+								class="author-image"
+							/>
 							<div class="author-info">
-								<p class="author-name">
-									James Miller
-								</p>
-								<p class="author-role">
-									Son & Caregiver
-								</p>
+								<h4>James Miller</h4>
+								<span>Son & Caregiver</span>
 							</div>
 						</div>
 					</div>
 
-					<!-- Testimonial 2: Sarah Chen -->
-					<div class="testimonial-card premium">
-						<div class="rating-stars">
-							<div class="stars-container">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-							<span class="rating-value"
-								>5.0</span
-							>
+					<!-- Testimonial 2 -->
+					<div class="testimonial-card featured">
+						<div class="quote-icon">
+							<i class="fas fa-quote-right"></i>
+						</div>
+						<div class="rating">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
 						</div>
 						<p class="testimonial-text">
 							"As a professional caregiver,
@@ -897,34 +726,32 @@
 							intuitive, and I can provide better
 							care with actionable insights."
 						</p>
-						<div class="testimonial-footer">
-							<div class="author-avatar">
-								<span>SC</span>
-							</div>
+						<div class="testimonial-author">
+							<img
+								src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80"
+								alt="Sarah Chen"
+								class="author-image"
+							/>
 							<div class="author-info">
-								<p class="author-name">
-									Sarah Chen
-								</p>
-								<p class="author-role">
-									Professional Caregiver
-								</p>
+								<h4>Sarah Chen</h4>
+								<span
+									>Professional Caregiver</span
+								>
 							</div>
 						</div>
 					</div>
 
-					<!-- Testimonial 3: Robert Johnson -->
-					<div class="testimonial-card premium">
-						<div class="rating-stars">
-							<div class="stars-container">
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-								<i class="fas fa-star"></i>
-							</div>
-							<span class="rating-value"
-								>5.0</span
-							>
+					<!-- Testimonial 3 -->
+					<div class="testimonial-card">
+						<div class="quote-icon">
+							<i class="fas fa-quote-right"></i>
+						</div>
+						<div class="rating">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
 						</div>
 						<p class="testimonial-text">
 							"My Dad values his independence, and
@@ -933,17 +760,15 @@
 							The technology is non-invasive but
 							incredibly effective."
 						</p>
-						<div class="testimonial-footer">
-							<div class="author-avatar">
-								<span>RJ</span>
-							</div>
+						<div class="testimonial-author">
+							<img
+								src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80"
+								alt="Emily Johnson"
+								class="author-image"
+							/>
 							<div class="author-info">
-								<p class="author-name">
-									Robert Johnson
-								</p>
-								<p class="author-role">
-									Daughter & Family Advocate
-								</p>
+								<h4>Emily Johnson</h4>
+								<span>Family Advocate</span>
 							</div>
 						</div>
 					</div>
@@ -955,291 +780,179 @@
 		<div class="section-divider"></div>
 
 		<!-- Education Section -->
-		<section class="education">
-			<div class="education-container">
-				<div class="section-header">
-					<span class="section-badge"
-						>Learn & Grow</span
-					>
-					<h2 class="section-title">
-						Aging-in-Place Safety Tips
-					</h2>
+		<section
+			id="education"
+			class="education-section"
+		>
+			<div class="container">
+				<div class="section-header text-center">
+					<div class="section-badge">
+						<span>Resources</span>
+					</div>
+					<h2>Empowering You with Knowledge</h2>
 					<p class="section-subtitle">
-						Knowledge is power. Master these
-						essential safety practices to create a
-						thriving, independent living
-						environment.
+						Expert guides and practical advice to
+						help you make the best decisions for
+						your loved ones' care and safety.
 					</p>
 				</div>
 
-				<div class="tips-grid">
-					<!-- Tip Card 1 -->
-					<article
-						class="tip-card featured-tip"
-						style="animation-delay: 0.1s"
-					>
-						<div class="tip-badge">Essential</div>
-						<div class="tip-icon-wrapper">
-							<svg
-								class="tip-icon"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
+				<div class="resources-grid">
+					<!-- Featured Resource -->
+					<article class="resource-card featured">
+						<div class="resource-image">
+							<img
+								src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80"
+								alt="Senior woman reading comfortably at home"
+							/>
+							<span class="resource-tag"
+								>Featured Guide</span
 							>
-								<path
-									d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"
-								></path>
-								<polyline
-									points="9 22 9 12 15 12 15 22"
-								></polyline>
-							</svg>
 						</div>
-						<h3 class="tip-title">
-							Home Safety Assessment
-						</h3>
-						<p class="tip-description">
-							Identify and eliminate fall hazards
-							like loose rugs, poor lighting, and
-							cluttered pathways. SmartCare
-							monitoring helps you notice when
-							safety measures need updating.
-						</p>
-						<div class="tip-highlights">
-							<span class="highlight"
-								>✓ Fall prevention</span
-							>
-							<span class="highlight"
-								>✓ Lighting audit</span
-							>
-							<span class="highlight"
-								>✓ Pathway clearance</span
-							>
+						<div class="resource-content">
+							<div class="meta-info">
+								<span
+									><i class="far fa-clock"></i> 10
+									min read</span
+								>
+								<span
+									><i class="far fa-folder"></i>
+									Aging in Place</span
+								>
+							</div>
+							<h3>
+								The Ultimate Guide to Aging in
+								Place
+							</h3>
+							<p>
+								Everything you need to know about
+								keeping your home safe,
+								comfortable, and suitable for
+								independent living as you age.
+							</p>
+							<a
+								href="#"
+								class="read-more"
+								>Read Full Guide
+								<i class="fas fa-arrow-right"></i
+							></a>
 						</div>
 					</article>
 
-					<!-- Tip Card 2 -->
-					<article
-						class="tip-card"
-						style="animation-delay: 0.2s"
-					>
-						<div class="tip-icon-wrapper">
-							<svg
-								class="tip-icon"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
+					<!-- Resource 1 -->
+					<article class="resource-card">
+						<div class="resource-image">
+							<img
+								src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=400&q=80"
+								alt="Safe home interior"
+							/>
+							<span class="resource-tag"
+								>Safety</span
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="1"
-								></circle>
-								<path
-									d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m2.12 2.12l4.24 4.24M1 12h6m6 0h6m-17.78 7.78l4.24-4.24m2.12-2.12l4.24-4.24"
-								></path>
-							</svg>
 						</div>
-						<h3 class="tip-title">
-							Medication Management
-						</h3>
-						<p class="tip-description">
-							Establish routines for medication
-							adherence. SmartCare tracks patterns
-							to ensure doses aren't missed and
-							alerts you to changes in behavior.
-						</p>
-						<div class="tip-highlights">
-							<span class="highlight"
-								>✓ Dose tracking</span
-							>
-							<span class="highlight"
-								>✓ Pattern monitoring</span
-							>
-							<span class="highlight"
-								>✓ Alert system</span
-							>
+						<div class="resource-content">
+							<div class="meta-info">
+								<span
+									><i class="far fa-clock"></i> 5
+									min read</span
+								>
+							</div>
+							<h3>Home Safety Checklist</h3>
+							<p>
+								Essential modifications to prevent
+								falls and accidents.
+							</p>
+							<a
+								href="#"
+								class="read-more"
+								>Read Article
+								<i class="fas fa-arrow-right"></i
+							></a>
 						</div>
 					</article>
 
-					<!-- Tip Card 3 -->
-					<article
-						class="tip-card"
-						style="animation-delay: 0.3s"
-					>
-						<div class="tip-icon-wrapper">
-							<svg
-								class="tip-icon"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
+					<!-- Resource 2 -->
+					<article class="resource-card">
+						<div class="resource-image">
+							<img
+								src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80"
+								alt="Using smart tablet"
+							/>
+							<span class="resource-tag"
+								>Technology</span
 							>
-								<path
-									d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
-								></path>
-								<path d="M12 6v6l4 2"></path>
-							</svg>
 						</div>
-						<h3 class="tip-title">
-							Nutrition & Hydration
-						</h3>
-						<p class="tip-description">
-							Monitor eating and drinking patterns
-							to ensure proper nutrition.
-							SmartCare learns normal routines and
-							flags concerning changes.
-						</p>
-						<div class="tip-highlights">
-							<span class="highlight"
-								>✓ Pattern learning</span
-							>
-							<span class="highlight"
-								>✓ Anomaly detection</span
-							>
-							<span class="highlight"
-								>✓ Health insights</span
-							>
+						<div class="resource-content">
+							<div class="meta-info">
+								<span
+									><i class="far fa-clock"></i> 7
+									min read</span
+								>
+							</div>
+							<h3>Understanding Smart Care</h3>
+							<p>
+								How modern technology is
+								revolutionizing senior care.
+							</p>
+							<a
+								href="#"
+								class="read-more"
+								>Read Article
+								<i class="fas fa-arrow-right"></i
+							></a>
 						</div>
 					</article>
 
-					<!-- Tip Card 4 -->
-					<article
-						class="tip-card"
-						style="animation-delay: 0.4s"
-					>
-						<div class="tip-icon-wrapper">
-							<svg
-								class="tip-icon"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path d="M6 4h12v10H6z"></path>
-								<path
-									d="M9 14v6M15 14v6M6 20h12"
-								></path>
-							</svg>
-						</div>
-						<h3 class="tip-title">
-							Activity & Mobility
-						</h3>
-						<p class="tip-description">
-							Encourage regular movement to
-							maintain strength and independence.
-							Track activity levels to ensure your
-							loved one stays active.
-						</p>
-						<div class="tip-highlights">
-							<span class="highlight"
-								>✓ Movement tracking</span
-							>
-							<span class="highlight"
-								>✓ Activity goals</span
-							>
-							<span class="highlight"
-								>✓ Progress reports</span
+					<!-- Resource 3 -->
+					<article class="resource-card">
+						<div class="resource-image">
+							<img
+								src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=400&q=80"
+								alt="Family talking"
+							/>
+							<span class="resource-tag"
+								>Family</span
 							>
 						</div>
-					</article>
-
-					<!-- Tip Card 5 -->
-					<article
-						class="tip-card"
-						style="animation-delay: 0.5s"
-					>
-						<div class="tip-icon-wrapper">
-							<svg
-								class="tip-icon"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<path
-									d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-								></path>
-							</svg>
-						</div>
-						<h3 class="tip-title">
-							Cognitive Stimulation
-						</h3>
-						<p class="tip-description">
-							Maintain mental health through
-							social engagement and mental
-							activities. SmartCare monitors
-							social interactions and engagement
-							patterns.
-						</p>
-						<div class="tip-highlights">
-							<span class="highlight"
-								>✓ Social tracking</span
-							>
-							<span class="highlight"
-								>✓ Engagement alerts</span
-							>
-							<span class="highlight"
-								>✓ Connection insights</span
-							>
-						</div>
-					</article>
-
-					<!-- Tip Card 6 -->
-					<article
-						class="tip-card"
-						style="animation-delay: 0.6s"
-					>
-						<div class="tip-icon-wrapper">
-							<svg
-								class="tip-icon"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-							>
-								<circle
-									cx="12"
-									cy="12"
-									r="9"
-								></circle>
-								<path d="M12 7v5l3 2"></path>
-							</svg>
-						</div>
-						<h3 class="tip-title">
-							Sleep Quality
-						</h3>
-						<p class="tip-description">
-							Ensure adequate, quality sleep for
-							overall health. SmartCare monitors
-							sleep patterns and alerts you to
-							disruptions or concerns.
-						</p>
-						<div class="tip-highlights">
-							<span class="highlight"
-								>✓ Sleep analysis</span
-							>
-							<span class="highlight"
-								>✓ Pattern tracking</span
-							>
-							<span class="highlight"
-								>✓ Disruption alerts</span
-							>
+						<div class="resource-content">
+							<div class="meta-info">
+								<span
+									><i class="far fa-clock"></i> 8
+									min read</span
+								>
+							</div>
+							<h3>Having "The Talk"</h3>
+							<p>
+								How to discuss care options with
+								aging parents.
+							</p>
+							<a
+								href="#"
+								class="read-more"
+								>Read Article
+								<i class="fas fa-arrow-right"></i
+							></a>
 						</div>
 					</article>
 				</div>
 
-				<div class="education-cta">
-					<p class="cta-text">
-						Ready to implement these safety
-						practices?
-					</p>
-					<a
-						href="#get-started"
-						class="btn btn-primary"
-						>Start Your Journey</a
-					>
+				<!-- Newsletter / Download CTA -->
+				<div class="resource-cta">
+					<div class="cta-content">
+						<h3>
+							Get Our Free Caregiver's Handbook
+						</h3>
+						<p>
+							A comprehensive 50-page PDF guide
+							with checklists, templates, and
+							expert advice.
+						</p>
+					</div>
+					<div class="cta-action">
+						<button class="btn btn-primary">
+							Download Free PDF
+						</button>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -1250,519 +963,342 @@
 		<!-- Get Started Section -->
 		<section
 			id="get-started"
-			class="get-started"
+			class="get-started-section"
 		>
 			<div class="container">
-				<!-- Section Header -->
-				<div class="section-header-with-badge">
+				<div class="section-header text-center">
 					<div class="section-badge">
 						<span>Start Today</span>
 					</div>
 					<h2>Ready to Empower Independence?</h2>
-					<p class="section-intro">
-						Choose your path and join thousands of
-						families protecting their loved ones
-						with intelligent care.
+					<p class="section-subtitle">
+						Choose the path that best fits your
+						family's needs. Whether you're ready
+						to start or just exploring, we're here
+						to help.
 					</p>
 				</div>
 
-				<!-- CTA Options Grid -->
-				<div class="cta-options">
-					<!-- Featured Option -->
-					<div
-						class="option option-featured"
-						style="animation-delay: 0.1s"
-					>
-						<div class="option-badge">
-							<span class="badge-label"
+				<div class="cta-grid">
+					<!-- Option 1: Demo -->
+					<div class="cta-card featured">
+						<div class="cta-image">
+							<img
+								src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=800&q=80"
+								alt="SmartCare Demo"
+							/>
+							<span class="cta-tag"
 								>Most Popular</span
 							>
 						</div>
-
-						<div class="option-icon">
-							<svg
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
+						<div class="cta-content">
+							<h3>Schedule a Free Demo</h3>
+							<p>
+								See SmartCare in action with a
+								personalized walkthrough from our
+								experts.
+							</p>
+							<ul class="cta-features">
+								<li>
+									<i
+										class="fas fa-check-circle"
+									></i>
+									15-minute personalized tour
+								</li>
+								<li>
+									<i
+										class="fas fa-check-circle"
+									></i>
+									Expert Q&A session
+								</li>
+								<li>
+									<i
+										class="fas fa-check-circle"
+									></i>
+									Custom pricing options
+								</li>
+							</ul>
+							<button
+								class="btn btn-primary btn-block"
+								onclick="openModal('demo')"
 							>
-								<path
-									d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
-								></path>
-								<polyline
-									points="16 2 16 8 8 8 8 2"
-								></polyline>
-								<line
-									x1="9"
-									y1="13"
-									x2="15"
-									y2="13"
-								></line>
-								<line
-									x1="9"
-									y1="17"
-									x2="15"
-									y2="17"
-								></line>
-							</svg>
+								Book Your Free Demo
+							</button>
 						</div>
-
-						<h3>Schedule a Free Demo</h3>
-						<p>
-							See SmartCare in action with a
-							personalized walkthrough from our
-							team.
-						</p>
-
-						<div class="option-highlights">
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>15-minute personalized
-									walkthrough</span
-								>
-							</div>
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>Expert answers to all your
-									questions</span
-								>
-							</div>
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>Custom pricing for your
-									needs</span
-								>
-							</div>
-						</div>
-
-						<button
-							class="btn btn-primary btn-featured"
-							onclick="openModal('demo')"
-						>
-							Book Your Free Demo
-						</button>
 					</div>
 
-					<!-- Secondary Option -->
-					<div
-						class="option"
-						style="animation-delay: 0.2s"
-					>
-						<div class="option-icon">
-							<svg
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
+					<!-- Option 2: Learn More -->
+					<div class="cta-card">
+						<div class="cta-icon-wrapper">
+							<i class="fas fa-book-open"></i>
+						</div>
+						<div class="cta-content">
+							<h3>Request Information</h3>
+							<p>
+								Get a detailed brochure with
+								features, pricing, and success
+								stories.
+							</p>
+							<button
+								class="btn btn-outline btn-block"
+								onclick="openModal('learn')"
 							>
-								<circle
-									cx="12"
-									cy="12"
-									r="10"
-								></circle>
-								<line
-									x1="12"
-									y1="16"
-									x2="12"
-									y2="12"
-								></line>
-								<line
-									x1="12"
-									y1="8"
-									x2="12.01"
-									y2="8"
-								></line>
-							</svg>
+								Download Brochure
+							</button>
 						</div>
-
-						<h3>Learn More</h3>
-						<p>
-							Get detailed information about
-							features, pricing, and how SmartCare
-							works.
-						</p>
-
-						<div class="option-highlights">
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>Detailed feature overview</span
-								>
-							</div>
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>Flexible pricing
-									information</span
-								>
-							</div>
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>ROI and success stories</span
-								>
-							</div>
-						</div>
-
-						<button
-							class="btn btn-outline"
-							onclick="openModal('learn')"
-						>
-							Request Information
-						</button>
 					</div>
 
-					<!-- Tertiary Option -->
-					<div
-						class="option"
-						style="animation-delay: 0.3s"
-					>
-						<div class="option-icon">
-							<svg
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
+					<!-- Option 3: Contact -->
+					<div class="cta-card">
+						<div class="cta-icon-wrapper">
+							<i class="fas fa-headset"></i>
+						</div>
+						<div class="cta-content">
+							<h3>Talk to a Specialist</h3>
+							<p>
+								Have specific questions? Speak
+								directly with our care team.
+							</p>
+							<button
+								class="btn btn-outline btn-block"
+								onclick="openModal('contact')"
 							>
-								<path
-									d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
-								></path>
-							</svg>
+								Contact Us
+							</button>
 						</div>
-
-						<h3>Talk to a Care Specialist</h3>
-						<p>
-							Speak with our experts about your
-							specific needs and how SmartCare can
-							help your family.
-						</p>
-
-						<div class="option-highlights">
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>One-on-one consultation</span
-								>
-							</div>
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>Personalized
-									recommendations</span
-								>
-							</div>
-							<div class="highlight-item">
-								<svg
-									class="highlight-icon"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-								>
-									<path
-										d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
-									></path>
-								</svg>
-								<span
-									>Dedicated support setup</span
-								>
-							</div>
-						</div>
-
-						<button
-							class="btn btn-outline"
-							onclick="openModal('contact')"
-						>
-							Contact Our Team
-						</button>
 					</div>
 				</div>
 
-				<!-- CTA Footer -->
-				<div class="get-started-footer">
-					<h3>Ready to get started?</h3>
-					<p>
-						Join thousands of families already
-						using SmartCare to keep their loved
-						ones safe and independent.
-					</p>
-					<button
-						class="btn btn-primary btn-large"
-						onclick="openModal('demo')"
-					>
-						Book Your Free Demo Today
-					</button>
-					<p class="footer-note">
-						<span>✓ No credit card required</span>
-						<span>✓ Setup takes 5 minutes</span>
-						<span>✓ 24/7 customer support</span>
-					</p>
+				<div class="trust-badges text-center">
+					<p>Trusted by over 10,000 families</p>
+					<div class="badges-row">
+						<span class="trust-badge"
+							><i class="fas fa-shield-alt"></i>
+							HIPAA Compliant</span
+						>
+						<span class="trust-badge"
+							><i class="fas fa-lock"></i>
+							Bank-Level Security</span
+						>
+						<span class="trust-badge"
+							><i class="fas fa-star"></i> 4.9/5
+							Customer Rating</span
+						>
+					</div>
 				</div>
 			</div>
 		</section>
 
 		<!-- Footer -->
-		<footer class="footer">
-			<div class="container">
-				<!-- Top Section with Newsletter CTA -->
-				<div class="footer-top">
-					<div class="footer-newsletter">
-						<h2>Stay Updated on Senior Care</h2>
-						<p>
-							Get safety tips, product updates,
-							and exclusive resources for
-							caregivers.
-						</p>
-						<form
-							class="newsletter-form"
-							onsubmit="handleNewsletter(event)"
-						>
-							<input
-								type="email"
-								placeholder="Enter your email"
-								required
-							/>
+		<footer class="site-footer">
+			<!-- Pre-Footer CTA -->
+			<div class="footer-cta">
+				<div class="container">
+					<div class="footer-cta-wrapper">
+						<div class="footer-cta-content">
+							<h2>
+								Ready to transform your care home?
+							</h2>
+							<p>
+								Join thousands of families who
+								trust SmartCare for peace of mind
+								and safety.
+							</p>
 							<button
-								type="submit"
-								class="btn btn-primary"
+								class="btn btn-light btn-pill"
+								onclick="openModal('demo')"
 							>
-								Subscribe
+								Get Started Now
 							</button>
-						</form>
+						</div>
+						<div class="footer-cta-image">
+							<img
+								src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=600&q=80"
+								alt="Care Home Support"
+							/>
+						</div>
 					</div>
 				</div>
+			</div>
 
-				<!-- Main Footer Grid -->
-				<div class="footer-grid">
-					<!-- Brand Section -->
-					<div
-						class="footer-section footer-brand"
-					>
-						<div class="footer-logo">
-							<h3>SmartCare Home</h3>
-						</div>
-						<p class="footer-tagline">
-							Empowering independent living
-							through intelligent monitoring and
-							compassionate care.
-						</p>
-						<div class="footer-features">
-							<div class="feature-badge">
-								<svg
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									width="20"
-									height="20"
-								>
-									<path
-										d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"
-									></path>
-								</svg>
-								<span>24/7 Support</span>
+			<div class="footer-main">
+				<div class="container">
+					<div class="footer-grid">
+						<!-- Brand Column -->
+						<div class="footer-col brand-col">
+							<a
+								href="#"
+								class="footer-logo"
+							>
+								<i class="fas fa-heartbeat"></i>
+								SmartCare
+							</a>
+							<p class="footer-desc">
+								Empowering independent living
+								through intelligent monitoring and
+								compassionate care. We're
+								dedicated to safety and peace of
+								mind.
+							</p>
+							<div class="contact-info">
+								<div class="contact-item">
+									<i
+										class="fas fa-map-marker-alt"
+									></i>
+									<span
+										>123 Innovation Dr, Tech City,
+										TC 90210</span
+									>
+								</div>
+								<div class="contact-item">
+									<i class="fas fa-phone-alt"></i>
+									<span>(555) 123-4567</span>
+								</div>
+								<div class="contact-item">
+									<i class="fas fa-envelope"></i>
+									<span>support@example.com</span>
+								</div>
 							</div>
-							<div class="feature-badge">
-								<svg
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									width="20"
-									height="20"
-								>
-									<path
-										d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"
-									></path>
-								</svg>
-								<span>HIPAA Compliant</span>
+							<div class="social-links">
+								<a
+									href="#"
+									aria-label="Facebook"
+									><i
+										class="fab fa-facebook-f"
+									></i
+								></a>
+								<a
+									href="#"
+									aria-label="X"
+									><i
+										class="fa-brands fa-x-twitter"
+									></i
+								></a>
+								<a
+									href="#"
+									aria-label="LinkedIn"
+									><i
+										class="fab fa-linkedin-in"
+									></i
+								></a>
+								<a
+									href="#"
+									aria-label="Instagram"
+									><i class="fab fa-instagram"></i
+								></a>
 							</div>
 						</div>
-						<div class="social-links">
-							<a
-								href="#"
-								title="Facebook"
-								class="social-icon"
-							>
-								<i class="fab fa-facebook"></i>
-							</a>
-							<a
-								href="#"
-								title="X"
-								class="social-icon"
-							>
-								X
-							</a>
-							<a
-								href="#"
-								title="LinkedIn"
-								class="social-icon"
-							>
-								<i class="fab fa-linkedin"></i>
-							</a>
-							<a
-								href="#"
-								title="Instagram"
-								class="social-icon"
-							>
-								<i class="fab fa-instagram"></i>
-							</a>
+
+						<!-- Links Column -->
+						<div class="footer-col">
+							<h4>Company</h4>
+							<ul class="footer-links">
+								<li>
+									<a href="#about">About Us</a>
+								</li>
+								<li>
+									<a href="#careers">Careers</a>
+								</li>
+								<li>
+									<a href="#press">Press</a>
+								</li>
+								<li>
+									<a href="#partners">Partners</a>
+								</li>
+								<li>
+									<a href="#contact">Contact</a>
+								</li>
+							</ul>
 						</div>
-					</div>
 
-					<!-- Product Links -->
-					<div class="footer-section">
-						<h4>Product</h4>
-						<ul>
-							<li>
-								<a href="#how-it-works"
-									>How It Works</a
+						<!-- Resources Column -->
+						<div class="footer-col">
+							<h4>Resources</h4>
+							<ul class="footer-links">
+								<li><a href="#blog">Blog</a></li>
+								<li>
+									<a href="#help">Help Center</a>
+								</li>
+								<li>
+									<a href="#guides"
+										>User Guides</a
+									>
+								</li>
+								<li>
+									<a href="#webinars">Webinars</a>
+								</li>
+								<li>
+									<a href="#privacy"
+										>Privacy Policy</a
+									>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Newsletter Column -->
+						<div
+							class="footer-col newsletter-col"
+						>
+							<h4>Stay Updated</h4>
+							<p>
+								Subscribe to our newsletter for
+								the latest updates and care tips.
+							</p>
+							<form
+								class="footer-newsletter-form"
+								onsubmit="handleNewsletter(event)"
+							>
+								<div class="input-group">
+									<input
+										type="email"
+										placeholder="Enter your email"
+										required
+									/>
+									<button
+										type="submit"
+										aria-label="Subscribe"
+									>
+										<i
+											class="fas fa-paper-plane"
+										></i>
+									</button>
+								</div>
+							</form>
+							<div class="certifications">
+								<span class="cert-badge"
+									><i
+										class="fas fa-shield-alt"
+									></i>
+									HIPAA Compliant</span
 								>
-							</li>
-							<li>
-								<a href="#benefits"
-									>Features & Benefits</a
+								<span class="cert-badge"
+									><i class="fas fa-lock"></i> SOC
+									2 Secure</span
 								>
-							</li>
-							<li>
-								<a href="#testimonials"
-									>Success Stories</a
-								>
-							</li>
-							<li>
-								<a href="#">Pricing Plans</a>
-							</li>
-							<li><a href="#">Mobile App</a></li>
-						</ul>
-					</div>
-
-					<!-- Company Links -->
-					<div class="footer-section">
-						<h4>Company</h4>
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Our Team</a></li>
-							<li><a href="#">Careers</a></li>
-							<li><a href="#">Press</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					</div>
-
-					<!-- Resources -->
-					<div class="footer-section">
-						<h4>Resources</h4>
-						<ul>
-							<li>
-								<a href="#">Blog & Articles</a>
-							</li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Help Center</a></li>
-							<li>
-								<a href="#">Documentation</a>
-							</li>
-							<li><a href="#">Security</a></li>
-						</ul>
-					</div>
-
-					<!-- Legal -->
-					<div class="footer-section">
-						<h4>Legal</h4>
-						<ul>
-							<li>
-								<a href="#">Privacy Policy</a>
-							</li>
-							<li>
-								<a href="#">Terms of Service</a>
-							</li>
-							<li>
-								<a href="#">Cookie Policy</a>
-							</li>
-							<li>
-								<a href="#">HIPAA Compliance</a>
-							</li>
-							<li>
-								<a href="#">Accessibility</a>
-							</li>
-						</ul>
+							</div>
+						</div>
 					</div>
 				</div>
+			</div>
 
-				<!-- Bottom Section -->
-				<div class="footer-bottom">
-					<div class="footer-bottom-content">
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="footer-bottom-inner">
 						<p>
 							&copy; 2025 SmartCare Home. All
 							rights reserved.
 						</p>
-						<div class="footer-bottom-badges">
-							<span class="badge-certification"
-								>HIPAA Certified</span
-							>
-							<span class="badge-certification"
-								>SOC 2 Compliant</span
-							>
-						</div>
+						<ul class="legal-links">
+							<li>
+								<a href="#">Terms of Service</a>
+							</li>
+							<li>
+								<a href="#">Privacy Policy</a>
+							</li>
+							<li>
+								<a href="#">Cookie Settings</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -1773,67 +1309,213 @@
 			id="demoModal"
 			class="modal"
 		>
-			<div class="modal-content">
-				<button
-					class="modal-close"
-					onclick="closeModal('demo')"
-				>
-					&times;
-				</button>
-				<h2>Schedule Your Free Demo</h2>
-				<p>
-					Let's show you how SmartCare can help
-					your loved ones live safely and
-					independently.
-				</p>
-				<form
-					onsubmit="handleFormSubmit(event, 'demo')"
-				>
-					<div class="form-group">
-						<input
-							type="text"
-							placeholder="Your Name"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<input
-							type="email"
-							placeholder="Your Email"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<input
-							type="tel"
-							placeholder="Your Phone"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<select required>
-							<option value="">
-								How did you hear about us?
-							</option>
-							<option value="search">
-								Search Engine
-							</option>
-							<option value="social">
-								Social Media
-							</option>
-							<option value="referral">
-								Referral
-							</option>
-							<option value="other">Other</option>
-						</select>
-					</div>
+			<div class="modal-dialog">
+				<div class="modal-content">
 					<button
-						type="submit"
-						class="btn btn-primary btn-block"
+						class="modal-close"
+						onclick="closeModal('demo')"
 					>
-						Schedule Demo
+						<i class="fas fa-times"></i>
 					</button>
-				</form>
+
+					<div class="modal-body">
+						<!-- Left Side: Visual & Info -->
+						<div class="modal-visual">
+							<div class="visual-content">
+								<h3>Experience Peace of Mind</h3>
+								<p>
+									Join thousands of families who
+									trust SmartCare for their loved
+									ones' safety.
+								</p>
+
+								<div class="modal-features">
+									<div class="modal-feature">
+										<div
+											class="feature-icon-circle"
+										>
+											<i class="fas fa-check"></i>
+										</div>
+										<span>24/7 Monitoring</span>
+									</div>
+									<div class="modal-feature">
+										<div
+											class="feature-icon-circle"
+										>
+											<i class="fas fa-bolt"></i>
+										</div>
+										<span>Instant Alerts</span>
+									</div>
+									<div class="modal-feature">
+										<div
+											class="feature-icon-circle"
+										>
+											<i class="fas fa-magic"></i>
+										</div>
+										<span>Easy Setup</span>
+									</div>
+								</div>
+
+								<div class="modal-trust">
+									<div class="trust-avatars">
+										<img
+											src="https://randomuser.me/api/portraits/women/44.jpg"
+											alt="User"
+										/>
+										<img
+											src="https://randomuser.me/api/portraits/men/32.jpg"
+											alt="User"
+										/>
+										<img
+											src="https://randomuser.me/api/portraits/women/68.jpg"
+											alt="User"
+										/>
+									</div>
+									<span
+										>Trusted by 5,000+
+										families</span
+									>
+								</div>
+							</div>
+							<img
+								src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80"
+								alt="Happy senior using tablet"
+								class="visual-bg"
+							/>
+							<div class="visual-overlay"></div>
+						</div>
+
+						<!-- Right Side: Form -->
+						<div class="modal-form-container">
+							<div class="form-header">
+								<h2>Schedule a Free Demo</h2>
+								<p>
+									Fill out the form below and our
+									care specialist will contact you
+									within 24 hours.
+								</p>
+							</div>
+
+							<form
+								onsubmit="handleFormSubmit(event, 'demo')"
+								class="modern-form"
+							>
+								<div class="form-group">
+									<label for="demoName"
+										>Full Name</label
+									>
+									<div class="input-wrapper">
+										<i
+											class="fas fa-user input-icon"
+										></i>
+										<input
+											type="text"
+											id="demoName"
+											name="name"
+											placeholder="John Doe"
+											required
+										/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="demoEmail"
+										>Email Address</label
+									>
+									<div class="input-wrapper">
+										<i
+											class="fas fa-envelope input-icon"
+										></i>
+										<input
+											type="email"
+											id="demoEmail"
+											name="email"
+											placeholder="john@example.com"
+											required
+										/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="demoPhone"
+										>Phone Number</label
+									>
+									<div class="input-wrapper">
+										<i
+											class="fas fa-phone input-icon"
+										></i>
+										<input
+											type="tel"
+											id="demoPhone"
+											name="phone"
+											placeholder="(555) 123-4567"
+											required
+										/>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="demoSource"
+										>How did you hear about
+										us?</label
+									>
+									<div class="input-wrapper">
+										<i
+											class="fas fa-bullhorn input-icon"
+										></i>
+										<select
+											id="demoSource"
+											name="source"
+											required
+										>
+											<option
+												value=""
+												disabled
+												selected
+											>
+												Select an option
+											</option>
+											<option value="search">
+												Search Engine
+											</option>
+											<option value="social">
+												Social Media
+											</option>
+											<option value="referral">
+												Friend/Family Referral
+											</option>
+											<option value="ad">
+												Advertisement
+											</option>
+											<option value="other">
+												Other
+											</option>
+										</select>
+										<i
+											class="fas fa-chevron-down select-arrow"
+										></i>
+									</div>
+								</div>
+
+								<button
+									type="submit"
+									class="btn btn-primary btn-block btn-lg"
+								>
+									<span>Schedule My Demo</span>
+									<i
+										class="fas fa-arrow-right"
+									></i>
+								</button>
+
+								<p class="form-footer">
+									<i class="fas fa-lock"></i> Your
+									information is secure and
+									private.
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
